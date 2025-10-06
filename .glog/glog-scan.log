@@ -1,1084 +1,4 @@
-Oct 06, 2025 5:51:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi_logger.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 47,
-        "startColumn" : 10,
-        "endLine" : 47,
-        "endColumn" : 15,
-        "charOffset" : 2096,
-        "charLength" : 5,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "ctime",
-          "binary" : null,
-          "rendered" : {
-            "text" : "ctime",
-            "markdown" : "`ctime`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7558,
-        "startColumn" : 12,
-        "endLine" : 7558,
-        "endColumn" : 18,
-        "charOffset" : 233417,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7539,
-        "startColumn" : 12,
-        "endLine" : 7539,
-        "endColumn" : 18,
-        "charOffset" : 232632,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7522,
-        "startColumn" : 12,
-        "endLine" : 7522,
-        "endColumn" : 18,
-        "charOffset" : 231869,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7504,
-        "startColumn" : 12,
-        "endLine" : 7504,
-        "endColumn" : 18,
-        "charOffset" : 231045,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7485,
-        "startColumn" : 12,
-        "endLine" : 7485,
-        "endColumn" : 18,
-        "charOffset" : 230225,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:51:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7463,
-        "startColumn" : 12,
-        "endLine" : 7463,
-        "endColumn" : 18,
-        "charOffset" : 229099,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7437,
-        "startColumn" : 12,
-        "endLine" : 7437,
-        "endColumn" : 18,
-        "charOffset" : 227788,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 7391,
-        "startColumn" : 12,
-        "endLine" : 7391,
-        "endColumn" : 18,
-        "charOffset" : 225853,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:52:11 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:02:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1179,7 +99,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:52:11 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:02:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1198,7 +118,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:02:44 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1299,7 +219,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:02:44 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1318,7 +238,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:33 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:24 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1419,7 +339,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:33 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:24 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1438,7 +358,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1539,7 +459,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1558,7 +478,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1659,7 +579,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:34 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1678,7 +598,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:35 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1779,7 +699,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:35 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1798,7 +718,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:35 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:26 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1899,7 +819,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:35 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:26 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1918,7 +838,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2019,7 +939,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2038,7 +958,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:56 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2139,7 +1059,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:56 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2158,7 +1078,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:39 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2259,7 +1179,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:39 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:03:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2278,7 +1198,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:42 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:05:19 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2298,147 +1218,27 @@ SEVERE: {
     "physicalLocation" : {
       "address" : null,
       "artifactLocation" : {
-        "uri" : "example/amd_smi_nodrm_example.cc",
+        "uri" : "rocm_smi/src/rocm_smi.cc",
         "uriBaseId" : null,
         "index" : null,
         "description" : null,
         "properties" : null
       },
       "region" : {
-        "startLine" : 359,
-        "startColumn" : 20,
-        "endLine" : 359,
-        "endColumn" : 26,
-        "charOffset" : 17772,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:42 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_nodrm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 119,
+        "startLine" : 7558,
         "startColumn" : 12,
-        "endLine" : 119,
+        "endLine" : 7558,
         "endColumn" : 18,
-        "charOffset" : 5142,
+        "charOffset" : 233417,
         "charLength" : 6,
         "byteOffset" : null,
         "byteLength" : null,
         "snippet" : {
-          "text" : "printf",
+          "text" : "sscanf",
           "binary" : null,
           "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
             "properties" : null
           },
           "properties" : null
@@ -2499,7 +1299,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:05:19 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2518,7 +1318,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:05:20 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2538,1107 +1338,27 @@ SEVERE: {
     "physicalLocation" : {
       "address" : null,
       "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
+        "uri" : "rocm_smi/src/rocm_smi.cc",
         "uriBaseId" : null,
         "index" : null,
         "description" : null,
         "properties" : null
       },
       "region" : {
-        "startLine" : 1862,
-        "startColumn" : 24,
-        "endLine" : 1862,
-        "endColumn" : 30,
-        "charOffset" : 91001,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1380,
-        "startColumn" : 16,
-        "endLine" : 1380,
-        "endColumn" : 22,
-        "charOffset" : 68321,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:48 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:52 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1237,
-        "startColumn" : 16,
-        "endLine" : 1237,
-        "endColumn" : 23,
-        "charOffset" : 59807,
-        "charLength" : 7,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sprintf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sprintf",
-            "markdown" : "`sprintf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:52 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1102,
-        "startColumn" : 16,
-        "endLine" : 1102,
-        "endColumn" : 22,
-        "charOffset" : 53004,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1100,
-        "startColumn" : 16,
-        "endLine" : 1100,
-        "endColumn" : 22,
-        "charOffset" : 52867,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1098,
-        "startColumn" : 16,
-        "endLine" : 1098,
-        "endColumn" : 22,
-        "charOffset" : 52730,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:54 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1096,
-        "startColumn" : 16,
-        "endLine" : 1096,
-        "endColumn" : 22,
-        "charOffset" : 52592,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 1094,
-        "startColumn" : 16,
-        "endLine" : 1094,
-        "endColumn" : 22,
-        "charOffset" : 52467,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 894,
-        "startColumn" : 16,
-        "endLine" : 894,
-        "endColumn" : 22,
-        "charOffset" : 41989,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "printf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:53:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 5:54:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "example/amd_smi_drm_example.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 868,
+        "startLine" : 7539,
         "startColumn" : 12,
-        "endLine" : 868,
+        "endLine" : 7539,
         "endColumn" : 18,
-        "charOffset" : 40543,
+        "charOffset" : 232632,
         "charLength" : 6,
         "byteOffset" : null,
         "byteLength" : null,
         "snippet" : {
-          "text" : "printf",
+          "text" : "sscanf",
           "binary" : null,
           "rendered" : {
-            "text" : "printf",
-            "markdown" : "`printf`",
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
             "properties" : null
           },
           "properties" : null
@@ -3699,7 +1419,847 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 5:54:00 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 06, 2025 6:05:20 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7522,
+        "startColumn" : 12,
+        "endLine" : 7522,
+        "endColumn" : 18,
+        "charOffset" : 231869,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7504,
+        "startColumn" : 12,
+        "endLine" : 7504,
+        "endColumn" : 18,
+        "charOffset" : 231045,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7485,
+        "startColumn" : 12,
+        "endLine" : 7485,
+        "endColumn" : 18,
+        "charOffset" : 230225,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7463,
+        "startColumn" : 12,
+        "endLine" : 7463,
+        "endColumn" : 18,
+        "charOffset" : 229099,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7437,
+        "startColumn" : 12,
+        "endLine" : 7437,
+        "endColumn" : 18,
+        "charOffset" : 227788,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 7391,
+        "startColumn" : 12,
+        "endLine" : 7391,
+        "endColumn" : 18,
+        "charOffset" : 225853,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:29 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "rocm_smi/src/rocm_smi_logger.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 47,
+        "startColumn" : 10,
+        "endLine" : 47,
+        "endColumn" : 15,
+        "charOffset" : 2096,
+        "charLength" : 5,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "ctime",
+          "binary" : null,
+          "rendered" : {
+            "text" : "ctime",
+            "markdown" : "`ctime`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 06, 2025 6:05:29 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
