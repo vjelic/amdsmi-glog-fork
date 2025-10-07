@@ -1,124 +1,4 @@
-Oct 06, 2025 6:02:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "rocm_smi/src/rocm_smi_gpu_metrics.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 42,
-        "startColumn" : 10,
-        "endLine" : 42,
-        "endColumn" : 15,
-        "charOffset" : 1670,
-        "charLength" : 5,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "ctime",
-          "binary" : null,
-          "rendered" : {
-            "text" : "ctime",
-            "markdown" : "`ctime`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 6:02:38 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 6:02:44 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -219,26 +99,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:02:44 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: next on empty iterator
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 6:03:24 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -258,27 +119,27 @@ SEVERE: {
     "physicalLocation" : {
       "address" : null,
       "artifactLocation" : {
-        "uri" : "src/amd_smi/fdinfo.cc",
+        "uri" : "rocm_smi/src/rocm_smi_gpu_metrics.cc",
         "uriBaseId" : null,
         "index" : null,
         "description" : null,
         "properties" : null
       },
       "region" : {
-        "startLine" : 179,
-        "startColumn" : 18,
-        "endLine" : 179,
-        "endColumn" : 24,
-        "charOffset" : 6455,
-        "charLength" : 6,
+        "startLine" : 42,
+        "startColumn" : 10,
+        "endLine" : 42,
+        "endColumn" : 15,
+        "charOffset" : 1670,
+        "charLength" : 5,
         "byteOffset" : null,
         "byteLength" : null,
         "snippet" : {
-          "text" : "sscanf",
+          "text" : "ctime",
           "binary" : null,
           "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
+            "text" : "ctime",
+            "markdown" : "`ctime`",
             "properties" : null
           },
           "properties" : null
@@ -339,7 +200,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:24 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -358,108 +219,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
-SEVERE: {
-  "ruleId" : "DS154189",
-  "ruleIndex" : null,
-  "rule" : null,
-  "kind" : "FAIL",
-  "level" : "WARNING",
-  "message" : {
-    "text" : "Banned C function detected",
-    "markdown" : null,
-    "id" : null,
-    "arguments" : null,
-    "properties" : null
-  },
-  "analysisTarget" : null,
-  "locations" : [ {
-    "id" : null,
-    "physicalLocation" : {
-      "address" : null,
-      "artifactLocation" : {
-        "uri" : "src/amd_smi/fdinfo.cc",
-        "uriBaseId" : null,
-        "index" : null,
-        "description" : null,
-        "properties" : null
-      },
-      "region" : {
-        "startLine" : 175,
-        "startColumn" : 18,
-        "endLine" : 175,
-        "endColumn" : 24,
-        "charOffset" : 6198,
-        "charLength" : 6,
-        "byteOffset" : null,
-        "byteLength" : null,
-        "snippet" : {
-          "text" : "sscanf",
-          "binary" : null,
-          "rendered" : {
-            "text" : "sscanf",
-            "markdown" : "`sscanf`",
-            "properties" : null
-          },
-          "properties" : null
-        },
-        "message" : null,
-        "sourceLanguage" : "cpp",
-        "properties" : null
-      },
-      "contextRegion" : null,
-      "properties" : null
-    },
-    "logicalLocations" : null,
-    "message" : null,
-    "annotations" : null,
-    "relationships" : null,
-    "properties" : null
-  } ],
-  "guid" : null,
-  "correlationGuid" : null,
-  "occurrenceCount" : null,
-  "partialFingerprints" : null,
-  "fingerprints" : null,
-  "stacks" : null,
-  "codeFlows" : null,
-  "graphs" : null,
-  "graphTraversals" : null,
-  "relatedLocations" : null,
-  "suppressions" : null,
-  "baselineState" : null,
-  "rank" : null,
-  "attachments" : null,
-  "hostedViewerUri" : null,
-  "workItemUris" : null,
-  "provenance" : null,
-  "fixes" : null,
-  "taxa" : null,
-  "webRequest" : null,
-  "webResponse" : null,
-  "properties" : {
-    "DevSkimSeverity" : "Moderate",
-    "DevSkimConfidence" : "High"
-  }
-}
-java.util.NoSuchElementException: next on empty iterator
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
-	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
-	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
-	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
-	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
-	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
-	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
-	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
-	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -478,7 +238,49 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:24 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:24 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -579,7 +381,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -598,7 +400,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -625,11 +427,11 @@ SEVERE: {
         "properties" : null
       },
       "region" : {
-        "startLine" : 165,
+        "startLine" : 179,
         "startColumn" : 18,
-        "endLine" : 165,
+        "endLine" : 179,
         "endColumn" : 24,
-        "charOffset" : 5610,
+        "charOffset" : 6455,
         "charLength" : 6,
         "byteOffset" : null,
         "byteLength" : null,
@@ -699,7 +501,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -718,7 +520,169 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:26 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "src/amd_smi/fdinfo.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 175,
+        "startColumn" : 18,
+        "endLine" : 175,
+        "endColumn" : 24,
+        "charOffset" : 6198,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:25 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:25 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:27 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -819,7 +783,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:26 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:27 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -838,7 +802,925 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:27 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: {
+  "ruleId" : "DS154189",
+  "ruleIndex" : null,
+  "rule" : null,
+  "kind" : "FAIL",
+  "level" : "WARNING",
+  "message" : {
+    "text" : "Banned C function detected",
+    "markdown" : null,
+    "id" : null,
+    "arguments" : null,
+    "properties" : null
+  },
+  "analysisTarget" : null,
+  "locations" : [ {
+    "id" : null,
+    "physicalLocation" : {
+      "address" : null,
+      "artifactLocation" : {
+        "uri" : "src/amd_smi/fdinfo.cc",
+        "uriBaseId" : null,
+        "index" : null,
+        "description" : null,
+        "properties" : null
+      },
+      "region" : {
+        "startLine" : 165,
+        "startColumn" : 18,
+        "endLine" : 165,
+        "endColumn" : 24,
+        "charOffset" : 5610,
+        "charLength" : 6,
+        "byteOffset" : null,
+        "byteLength" : null,
+        "snippet" : {
+          "text" : "sscanf",
+          "binary" : null,
+          "rendered" : {
+            "text" : "sscanf",
+            "markdown" : "`sscanf`",
+            "properties" : null
+          },
+          "properties" : null
+        },
+        "message" : null,
+        "sourceLanguage" : "cpp",
+        "properties" : null
+      },
+      "contextRegion" : null,
+      "properties" : null
+    },
+    "logicalLocations" : null,
+    "message" : null,
+    "annotations" : null,
+    "relationships" : null,
+    "properties" : null
+  } ],
+  "guid" : null,
+  "correlationGuid" : null,
+  "occurrenceCount" : null,
+  "partialFingerprints" : null,
+  "fingerprints" : null,
+  "stacks" : null,
+  "codeFlows" : null,
+  "graphs" : null,
+  "graphTraversals" : null,
+  "relatedLocations" : null,
+  "suppressions" : null,
+  "baselineState" : null,
+  "rank" : null,
+  "attachments" : null,
+  "hostedViewerUri" : null,
+  "workItemUris" : null,
+  "provenance" : null,
+  "fixes" : null,
+  "taxa" : null,
+  "webRequest" : null,
+  "webResponse" : null,
+  "properties" : {
+    "DevSkimSeverity" : "Moderate",
+    "DevSkimConfidence" : "High"
+  }
+}
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:27 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+SEVERE: next on empty iterator
+java.util.NoSuchElementException: next on empty iterator
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
+	at scala.collection.Iterator$$anon$19.next(Iterator.scala:971)
+	at scala.collection.Iterator$$anon$6.next(Iterator.scala:492)
+	at flatgraph.traversal.GenericSteps$.head$extension(Language.scala:80)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:29)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:187)
+	at ai.glog.plugins.devskim.rules.resolve.DangerousCFunctionDetectedResolver.isFalsePositive(DangerousCFunctionDetectedResolver.java:22)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.isFalsePositive(TriageAndRemediationCallableWorker.java:116)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:66)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:31 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:31 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:33 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:33 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:33 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:33 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:33 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:33 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:36 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:36 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:39 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:39 PM ai.glog.plugins.devskim.rules.resolve.MallocResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:39 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:39 PM ai.glog.plugins.devskim.rules.resolve.MallocResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:40 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:40 PM ai.glog.plugins.devskim.rules.resolve.MallocResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MallocResolver.getDetailText(MallocResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:46 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:46 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:46 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:46 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:46 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:46 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:49 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:49 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:50 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:50 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:50 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:50 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:50 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:50 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:51 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:51 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:52 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:52 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:54 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:54 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:54 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:09:54 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:09:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -939,7 +1821,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:55 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:58 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -958,7 +1840,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:56 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1059,7 +1941,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:56 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1078,7 +1960,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1179,7 +2061,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:03:57 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:09:59 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1198,7 +2080,49 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:19 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:00 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:10:00 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1299,7 +2223,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:19 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1318,7 +2242,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:20 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1419,7 +2343,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:20 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1438,7 +2362,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1539,7 +2463,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:02 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1558,7 +2482,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1659,7 +2583,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:21 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1678,7 +2602,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1779,7 +2703,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1798,7 +2722,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -1899,7 +2823,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:22 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:03 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -1918,7 +2842,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:04 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2019,7 +2943,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:23 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:04 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2038,7 +2962,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:05 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2139,7 +3063,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:25 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:05 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
@@ -2158,7 +3082,91 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:29 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:06 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:61)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:10:06 PM ai.glog.plugins.devskim.rules.resolve.StrncpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.StrncpyResolver.getDetailText(StrncpyResolver.java:64)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:10:07 PM ai.glog.service.GlogService getFromGlog
+SEVERE: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Server Error (500)</title>
+</head>
+<body>
+  <h1>Server Error (500)</h1><p></p>
+</body>
+</html>
+
+com.google.gson.JsonSyntaxException: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:225)
+	at com.google.gson.Gson.fromJson(Gson.java:991)
+	at com.google.gson.Gson.fromJson(Gson.java:956)
+	at com.google.gson.Gson.fromJson(Gson.java:905)
+	at ai.glog.service.GlogService.getFromGlog(GlogService.java:174)
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:60)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.lang.IllegalStateException: Expected BEGIN_OBJECT but was STRING at line 2 column 1 path $
+	at com.google.gson.stream.JsonReader.beginObject(JsonReader.java:385)
+	at com.google.gson.internal.bind.ReflectiveTypeAdapterFactory$Adapter.read(ReflectiveTypeAdapterFactory.java:214)
+	... 11 more
+
+Oct 07, 2025 10:10:07 PM ai.glog.plugins.devskim.rules.resolve.MemcpyResolver getDetailText
+SEVERE: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+java.lang.NullPointerException: Cannot invoke "ai.glog.context.miner.dto.CallRemediationDto.getRationale()" because "remediation" is null
+	at ai.glog.plugins.devskim.rules.resolve.MemcpyResolver.getDetailText(MemcpyResolver.java:63)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:69)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:31)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+
+Oct 07, 2025 10:10:08 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: {
   "ruleId" : "DS154189",
   "ruleIndex" : null,
@@ -2259,7 +3267,7 @@ java.util.NoSuchElementException: next on empty iterator
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
 
-Oct 06, 2025 6:05:29 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
+Oct 07, 2025 10:10:08 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker isFalsePositive
 SEVERE: next on empty iterator
 java.util.NoSuchElementException: next on empty iterator
 	at scala.collection.Iterator$$anon$19.next(Iterator.scala:973)
