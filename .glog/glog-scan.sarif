@@ -12,94 +12,10 @@
           "informationUri": "https://www.glog.ai",
           "rules": [
             {
-              "id": "d47146c4-8532-3e70-8447-827a2f71d817",
+              "id": "37cdc37c-048b-35e7-9d93-b1aa2ebfb859",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\n\"Prohibited C Function Found\" is a vulnerability that arises when a C++ program uses a function that is considered unsafe or insecure. These functions are often prohibited because they can lead to serious security issues such as buffer overflows, format string vulnerabilities, or integer overflows. In this case, the `fopen` function is used, which can lead to vulnerabilities if the file name (`fname`) is not properly validated or controlled.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used for file input and output operations respectively. These classes provide better control and error handling than the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` or `ofstream` class from the `fstream` library. Here is an example of how to open a file for reading in binary mode using `ifstream`:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(fname, std::ios::binary);\nif (!file) {\n    // Handle error\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## References\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS154189"
-                ]
-              }
-            },
-            {
-              "id": "fb30d248-8c61-3853-ad65-ad3708750aae",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe `strlen()` function in C and C++ is used to find the length of a string. However, it can lead to vulnerabilities if not used properly. The function counts the number of characters in a string until it reaches a null character (`'\\0'`). If the string is not null-terminated, `strlen()` will continue reading memory beyond the intended boundary, leading to a buffer overflow vulnerability. This can result in crashes, incorrect behavior, or potential execution of malicious code.\n\nIn the provided code snippet, `strlen(info.container_name) > 0`, there is a potential risk if `info.container_name` is not a null-terminated string. \n\n## Mitigation Advice\n\nTo mitigate this vulnerability, always ensure that strings are null-terminated. Avoid using `strlen()` on strings that may not be null-terminated. Instead, consider using safer alternatives such as `strnlen()`, which takes an additional parameter to specify the maximum length of the string.\n\n## Source Code Fix Recommendation\n\nReplace the `strlen()` function with `strnlen()`. The second parameter to `strnlen()` should be the maximum size of `info.container_name`. \n\n```cpp\nstrnlen(info.container_name, sizeof(info.container_name)) > 0\n```\n\n## Library Dependencies\n\nThe `strlen()` function is part of the C standard library, so no additional libraries are needed for the original code. The `strnlen()` function is also part of the C standard library, but it is not available in all environments. If `strnlen()` is not available, you may need to implement a similar function yourself.\n\n## References\n\n- [OWASP C/C++ Vulnerabilities](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n- [CWE-126: Buffer Over-read](https://cwe.mitre.org/data/definitions/126.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS140021"
-                ]
-              }
-            },
-            {
-              "id": "827e3500-579e-3d93-ac37-6a17d28e3ec8",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\n\"Prohibited C Function Found\" is a vulnerability that arises when a C++ program uses a function that is considered unsafe or insecure. These functions are often prohibited because they can lead to serious security issues such as buffer overflows, format string vulnerabilities, or integer overflows. In this case, the `fopen` function is used, which can lead to vulnerabilities if the file name (`fname`) is not properly validated or controlled.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used for file input and output operations respectively. These classes provide better control and error handling than the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` or `ofstream` class from the `fstream` library. Here is an example of how to open a file for reading in binary mode using `ifstream`:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(fname, std::ios::binary);\nif (!file) {\n    // Handle error\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## References\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS154189"
-                ]
-              }
-            },
-            {
-              "id": "5ae42019-828f-382e-8ef2-c543c110ffc1",
-              "help": {
-                "text": "",
-                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The verdict is marked as 'GENUINE', and the classification explicitly states there is a risk of undefined behavior. The analysis determined that overlap is feasible based on data flow between the source and destination, which can cause unpredictable results with memcpy. Additionally, the source may be null at this call site, which could also lead to a crash or further undefined behavior. There are no explicit guards or checks to prevent these issues, and the destination is not a pointer-based member, making the risk more pronounced. Developers should address both the potential for overlapping memory regions and the possibility of a null source pointer to ensure safe and predictable behavior.\n\n## In Context Remediation 1\nBefore performing the memory copy, ensure that the source and destination memory regions do not overlap. Add a runtime check to verify that the memory regions are either completely separate or use a safer function if overlap is possible. For example:\n\n```cpp\nif ((char*)&pmmetrics_version + sizeof(pmmetrics_version) <= (char*)&buf1[12] ||\n    (char*)&buf1[12] + 4 <= (char*)&pmmetrics_version) {\n    memcpy(&pmmetrics_version, &buf1[12], 4);\n} else {\n    // Handle overlap case or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before calling memcpy. If overlap is possible, handle it appropriately (e.g., log an error or use a different approach).\n\n## In Context Remediation 2\nIf there is any possibility that the source and destination memory regions may overlap, use the `memmove` function instead of `memcpy`, as `memmove` is designed to handle overlapping memory safely:\n\n```cpp\nmemmove(&pmmetrics_version, &buf1[12], 4);\n```\nThis change ensures that the operation is safe even if the memory regions overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [NIST Glossary: Buffer Overflow](https://csrc.nist.gov/glossary/term/buffer_overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS121708"
-                ]
-              }
-            },
-            {
-              "id": "698121a6-d90d-3bac-a372-926809dbf2c7",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\nThe `strlen()` function in C and C++ is used to find the length of a string. However, it can lead to vulnerabilities if not used properly. The function counts the number of characters in a string until it reaches a null character (`'\\0'`). If the string is not null-terminated, `strlen()` will continue reading memory until it encounters a null character, which can lead to buffer overflows, memory corruption, and other undefined behavior.\n\nIn the provided code snippet, `strlen(container_type_name[i])`, the vulnerability arises if `container_type_name[i]` is not a null-terminated string.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, ensure that all strings are null-terminated before passing them to `strlen()`. Also, consider using safer alternatives to `strlen()`, such as `strnlen()`, which takes an additional parameter specifying the maximum number of characters to read.\n\n## Source Code Fix Recommendation\n\nAssuming `container_type_name` is an array of strings, you can ensure null-termination as follows:\n\n```cpp\n// Ensure null-termination\ncontainer_type_name[i][sizeof(container_type_name[i]) - 1] = '\\0';\n\n// Now it's safe to call strlen\nsize_t len = strlen(container_type_name[i]);\n```\n\nIf you have control over the creation of the strings, ensure they are null-terminated at creation time.\n\n## Library Dependencies\n\nThe `strlen()` function is part of the C standard library, so no additional libraries are needed.\n\n## References\n\n- [OWASP C/C++ Vulnerabilities](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n- [CWE-126: Buffer Over-read](https://cwe.mitre.org/data/definitions/126.html)"
-              },
-              "properties": {
-                "tags": [
-                  "DS140021"
-                ]
-              }
-            },
-            {
-              "id": "06b1e788-5be4-3467-aaae-0a2c320ca462",
-              "help": {
-                "text": "",
-                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to the possibility that either the source or destination pointer may be null, and there are no obvious null pointer checks before the buffer operation. The code copies a string from a C++ string object to a destination buffer using a function that does not inherently protect against null pointers. The source is a C-style string, which is generally safe, but the destination buffer may be null, as there is no evidence of a guard or check to ensure it is valid. The absence of a null check for the destination pointer is a significant risk, as dereferencing a null pointer will cause a crash or undefined behavior. The probability of this being a false positive is very low due to the lack of safety checks and the explicit risk noted in the classification.\n\n## In Context Remediation 1\nBefore performing the copy operation, ensure that the destination buffer is not null. Add an explicit check for the destination pointer and handle the error appropriately if it is null. For example:\n\n```cpp\nif (info.name != nullptr) {\n    strncpy(info.name, name.c_str(), std::min((unsigned long)AMDSMI_MAX_STRING_LENGTH, name.length()));\n} else {\n    // Handle error: destination buffer is null\n    // For example, log an error or return an error code\n}\n```\n\nThis prevents undefined behavior by ensuring the destination buffer is valid before use.\n\n## In Context Remediation 2\nIf the destination buffer is a member of a struct or class and should always be valid, review the initialization logic to guarantee it is never null. If dynamic allocation is involved, ensure allocation succeeds before this operation. For example:\n\n```cpp\nif (info.name == nullptr) {\n    info.name = new char[AMDSMI_MAX_STRING_LENGTH];\n    if (info.name == nullptr) {\n        // Handle allocation failure\n    }\n}\nstrncpy(info.name, name.c_str(), std::min((unsigned long)AMDSMI_MAX_STRING_LENGTH, name.length()));\n```\n\nThis ensures the buffer is allocated before use.\n\n## In Context Remediation 3\nConsider using safer string copy functions that check for null pointers or provide additional safety guarantees, such as `strlcpy` (if available) or C++ string assignment, but only if it fits the context and requirements. Always validate pointers before use.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [NIST Buffer Overflow](https://csrc.nist.gov/glossary/term/buffer_overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-476: NULL Pointer Dereference](https://cwe.mitre.org/data/definitions/476.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS111237"
-                ]
-              }
-            },
-            {
-              "id": "51972bad-11a3-33a2-a9c7-7b7177282a69",
-              "help": {
-                "text": "",
-                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to possible null pointer dereference, and the verdict is marked as genuine. The code copies a string into a destination buffer using a function that does not check if the destination pointer is null. The analysis indicates that the destination pointer may be null at this point, and there is no evidence of a guard or check to prevent this. The source is a C-style string, which is generally safe, but the lack of null checks on the destination is a significant risk. There is also no explicit null-termination after the copy, which could lead to non-null-terminated strings if the source is longer than the buffer. These factors make this a real and actionable issue.\n\n## In Context Remediation 1\nBefore copying the string, ensure that the destination pointer is not null. Add a check to verify that `cpu_info` and `cpu_info->model_name` are valid pointers before calling the copy function. Also, explicitly null-terminate the destination buffer after copying to prevent unterminated strings.\n\n```cpp\nif (cpu_info && cpu_info->model_name) {\n    strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH - 1);\n    cpu_info->model_name[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0';\n}\n```\n\nThis ensures that the destination is valid and the string is always null-terminated, preventing undefined behavior and potential security issues.\n\n## In Context Remediation 2\nIf you want to avoid manual null-termination and pointer checks, consider using a safer string copy function that handles null pointers and guarantees null-termination, or wrap the logic in a helper function that performs these checks. For example:\n\n```cpp\nvoid safe_strncpy(char *dst, const char *src, size_t max_len) {\n    if (dst && src && max_len > 0) {\n        strncpy(dst, src, max_len - 1);\n        dst[max_len - 1] = '\\0';\n    }\n}\n\n// Usage:\nsafe_strncpy(cpu_info ? cpu_info->model_name : nullptr, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH);\n```\n\nThis approach centralizes the safety logic and reduces the risk of similar bugs elsewhere.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-476: NULL Pointer Dereference](https://cwe.mitre.org/data/definitions/476.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS111237"
-                ]
-              }
-            },
-            {
-              "id": "c961bb23-193f-31f4-b8b6-c0cbe0103838",
-              "help": {
-                "text": "",
-                "markdown": "This finding is classified as a genuine vulnerability because the analysis detected a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The destination and source expressions are related by data flow, which means they may refer to overlapping memory, and this is confirmed by the analysis. Additionally, the source pointer may be null, which could also lead to undefined behavior. The destination is a pointer type, and there is no explicit check or guard to prevent overlap or null pointer dereference. The use of the standard memory copy function in this context is unsafe if the regions overlap, as it does not handle overlapping memory correctly. This combination of factors makes the issue a high-confidence, actionable security or correctness problem.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory, ensure that the source and destination memory regions do not overlap before performing the copy. You can add a runtime check to verify that the memory regions are distinct:\n\n```cpp\nif ((metrics_table != &metrics_tbl) &&\n    ((char*)metrics_table + sizeof(amdsmi_hsmp_metrics_table_t) <= (char*)&metrics_tbl ||\n     (char*)&metrics_tbl + sizeof(amdsmi_hsmp_metrics_table_t) <= (char*)metrics_table)) {\n    std::memcpy(metrics_table, &metrics_tbl, sizeof(amdsmi_hsmp_metrics_table_t));\n} else {\n    // Handle overlap case appropriately, e.g., use memmove or log an error\n}\n```\n\n\n## In Context Remediation 2\nIf there is a possibility that the source and destination memory regions may overlap, use the standard memory move function instead of the memory copy function. The memory move function is designed to handle overlapping memory safely:\n\n```cpp\nstd::memmove(metrics_table, &metrics_tbl, sizeof(amdsmi_hsmp_metrics_table_t));\n```\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n\n___\n"
+                "markdown": "This finding is classified as a genuine vulnerability because the analysis detected a possible undefined behavior risk due to overlapping memory regions between the source and destination in a memory copy operation. The verdict is supported by the classification indicating undefined behavior risk and the explicit 'GENUINE' verdict. The analysis found that the source and destination may overlap based on data flow, which can cause undefined behavior when using memory copy functions like memcpy. There are no explicit checks or guards in the code to prevent this overlap, and the destination and source are both pointers without clear capacity or bounds checks. The source and destination are also confirmed to be non-null, so the main risk is the potential for memory overlap, which is not handled by memcpy.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory regions that may overlap, add a runtime check to ensure the source and destination do not overlap before calling the memory copy function. If overlap is possible, use a safe memory move function that handles overlapping regions.\n\n```cpp\nif ((cpu_set + cpu_set_size) <= bitmask.data() || (bitmask.data() + cpu_set_size) <= cpu_set) {\n    std::memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n} else {\n    std::memmove(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n}\n```\nThis code checks if the memory regions do not overlap and uses memcpy only in that case. If overlap is possible, it uses memmove, which is safe for overlapping regions.\n\n## In Context Remediation 2\nAlternatively, replace the memory copy function with a memory move function that is designed to handle overlapping memory regions. This ensures safe behavior regardless of whether the source and destination overlap.\n\n```cpp\nstd::memmove(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n```\nThis change guarantees correct behavior even if the source and destination memory regions overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
               },
               "properties": {
                 "tags": [
@@ -120,14 +36,14 @@
               }
             },
             {
-              "id": "37cdc37c-048b-35e7-9d93-b1aa2ebfb859",
+              "id": "51972bad-11a3-33a2-a9c7-7b7177282a69",
               "help": {
                 "text": "",
-                "markdown": "This finding is classified as a genuine vulnerability because the analysis detected a possible undefined behavior risk due to overlapping memory regions between the source and destination in a memory copy operation. The verdict is supported by the classification indicating undefined behavior risk and the explicit 'GENUINE' verdict. The analysis found that the source and destination may overlap based on data flow, which can cause undefined behavior when using memory copy functions like memcpy. There are no explicit checks or guards in the code to prevent this overlap, and the destination and source are both pointers without clear capacity or bounds checks. The source and destination are also confirmed to be non-null, so the main risk is the potential for memory overlap, which is not handled by memcpy.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory regions that may overlap, add a runtime check to ensure the source and destination do not overlap before calling the memory copy function. If overlap is possible, use a safe memory move function that handles overlapping regions.\n\n```cpp\nif ((cpu_set + cpu_set_size) <= bitmask.data() || (bitmask.data() + cpu_set_size) <= cpu_set) {\n    std::memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n} else {\n    std::memmove(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n}\n```\nThis code checks if the memory regions do not overlap and uses memcpy only in that case. If overlap is possible, it uses memmove, which is safe for overlapping regions.\n\n## In Context Remediation 2\nAlternatively, replace the memory copy function with a memory move function that is designed to handle overlapping memory regions. This ensures safe behavior regardless of whether the source and destination overlap.\n\n```cpp\nstd::memmove(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t));\n```\nThis change guarantees correct behavior even if the source and destination memory regions overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
+                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to possible null pointer dereference, and the verdict is marked as genuine. The code copies a string into a destination buffer using a function that does not check if the destination pointer is null. The analysis indicates that the destination pointer may be null at this point, and there is no evidence of a guard or check to prevent this. The source is a C-style string, which is generally safe, but the lack of null checks on the destination is a significant risk. There is also no explicit null-termination after the copy, which could lead to non-null-terminated strings if the source is longer than the buffer. These factors make this a real and actionable issue.\n\n## In Context Remediation 1\nBefore copying the string, ensure that the destination pointer is not null. Add a check to verify that `cpu_info` and `cpu_info->model_name` are valid pointers before calling the copy function. Also, explicitly null-terminate the destination buffer after copying to prevent unterminated strings.\n\n```cpp\nif (cpu_info && cpu_info->model_name) {\n    strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH - 1);\n    cpu_info->model_name[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0';\n}\n```\n\nThis ensures that the destination is valid and the string is always null-terminated, preventing undefined behavior and potential security issues.\n\n## In Context Remediation 2\nIf you want to avoid manual null-termination and pointer checks, consider using a safer string copy function that handles null pointers and guarantees null-termination, or wrap the logic in a helper function that performs these checks. For example:\n\n```cpp\nvoid safe_strncpy(char *dst, const char *src, size_t max_len) {\n    if (dst && src && max_len > 0) {\n        strncpy(dst, src, max_len - 1);\n        dst[max_len - 1] = '\\0';\n    }\n}\n\n// Usage:\nsafe_strncpy(cpu_info ? cpu_info->model_name : nullptr, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH);\n```\n\nThis approach centralizes the safety logic and reduces the risk of similar bugs elsewhere.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-476: NULL Pointer Dereference](https://cwe.mitre.org/data/definitions/476.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
               },
               "properties": {
                 "tags": [
-                  "DS121708"
+                  "DS111237"
                 ]
               }
             },
@@ -156,18 +72,6 @@
               }
             },
             {
-              "id": "13437bfe-bd00-3bcd-b8e7-a062cdad5011",
-              "help": {
-                "text": "",
-                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the call to the string copy function. The dataflow analysis suggests that the source and destination may refer to overlapping memory, which is not allowed by the standard for this function and can result in unpredictable program behavior. Additionally, there is no explicit check or guard to prevent this overlap, and the source pointer may also be null, which further increases the risk. The destination is confirmed to be non-null before the call, but this does not mitigate the overlap or null source risks. The absence of a null-terminator assignment after the copy further increases the risk of string handling errors.\n\n## In Context Remediation 1\nAdd a runtime check to ensure that the source and destination memory regions do not overlap before performing the copy. This can be done by comparing the addresses and lengths of the buffers. If overlap is detected, handle the case appropriately (e.g., use a temporary buffer or abort the operation).\n\n```cpp\nif ((info->version + AMDSMI_MAX_STRING_LENGTH <= reinterpret_cast<char *>(vbios.vbios_ver_str)) ||\n    (reinterpret_cast<char *>(vbios.vbios_ver_str) + AMDSMI_MAX_STRING_LENGTH <= info->version)) {\n    strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str), AMDSMI_MAX_STRING_LENGTH);\n} else {\n    // Handle overlap: use a temporary buffer or log an error\n}\n```\n\n\n## In Context Remediation 2\nIf overlapping memory regions are possible and must be handled, use a function that is defined for overlapping regions, such as memmove, instead of strncpy. Note that memmove does not guarantee null-termination, so you may need to add it manually if working with strings.\n\n```cpp\nmemmove(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str), AMDSMI_MAX_STRING_LENGTH);\n// Optionally ensure null-termination if info->version is used as a string\ninfo->version[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0';\n```\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS111237"
-                ]
-              }
-            },
-            {
               "id": "2fd20e28-e306-3773-9596-5e8a08501aaf",
               "help": {
                 "text": "",
@@ -184,6 +88,18 @@
               "help": {
                 "text": "",
                 "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the strncpy operation. The dataflow analysis suggests that the destination and source may refer to overlapping memory, which is not allowed by the C standard for strncpy and can result in unpredictable program behavior. Additionally, there is no explicit null-termination of the destination buffer after the copy, which can lead to unterminated strings. The source pointer may also be null, which could cause a crash. The destination is guarded as non-null, but the combination of possible overlap and lack of null-termination makes this a high-confidence, actionable issue.\n\n## In Context Remediation 1\nAdd a runtime check to ensure that the source and destination buffers do not overlap before calling `strncpy`. This can be done by comparing the memory addresses and lengths. If overlap is possible, handle the copy safely or avoid the operation.\n\n```cpp\nif ((info->part_number + AMDSMI_MAX_STRING_LENGTH <= reinterpret_cast<char *>(vbios.vbios_pn)) ||\n    (reinterpret_cast<char *>(vbios.vbios_pn) + AMDSMI_MAX_STRING_LENGTH <= info->part_number)) {\n    strncpy(info->part_number, reinterpret_cast<char *>(vbios.vbios_pn), AMDSMI_MAX_STRING_LENGTH);\n    info->part_number[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0'; // Ensure null-termination\n} else {\n    // Handle overlap case safely, e.g., use memmove or log an error\n}\n```\n\n\n## In Context Remediation 2\nIf overlap between source and destination cannot be ruled out, use `memmove` instead of `strncpy`, as `memmove` is defined for overlapping memory regions. After copying, ensure the destination is null-terminated.\n\n```cpp\nmemmove(info->part_number, reinterpret_cast<char *>(vbios.vbios_pn), AMDSMI_MAX_STRING_LENGTH);\ninfo->part_number[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0'; // Ensure null-termination\n```\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [NIST Glossary: Buffer Overflow](https://csrc.nist.gov/glossary/term/buffer_overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n\n\n___\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS111237"
+                ]
+              }
+            },
+            {
+              "id": "13437bfe-bd00-3bcd-b8e7-a062cdad5011",
+              "help": {
+                "text": "",
+                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the call to the string copy function. The dataflow analysis suggests that the source and destination may refer to overlapping memory, which is not allowed by the standard for this function and can result in unpredictable program behavior. Additionally, there is no explicit check or guard to prevent this overlap, and the source pointer may also be null, which further increases the risk. The destination is confirmed to be non-null before the call, but this does not mitigate the overlap or null source risks. The absence of a null-terminator assignment after the copy further increases the risk of string handling errors.\n\n## In Context Remediation 1\nAdd a runtime check to ensure that the source and destination memory regions do not overlap before performing the copy. This can be done by comparing the addresses and lengths of the buffers. If overlap is detected, handle the case appropriately (e.g., use a temporary buffer or abort the operation).\n\n```cpp\nif ((info->version + AMDSMI_MAX_STRING_LENGTH <= reinterpret_cast<char *>(vbios.vbios_ver_str)) ||\n    (reinterpret_cast<char *>(vbios.vbios_ver_str) + AMDSMI_MAX_STRING_LENGTH <= info->version)) {\n    strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str), AMDSMI_MAX_STRING_LENGTH);\n} else {\n    // Handle overlap: use a temporary buffer or log an error\n}\n```\n\n\n## In Context Remediation 2\nIf overlapping memory regions are possible and must be handled, use a function that is defined for overlapping regions, such as memmove, instead of strncpy. Note that memmove does not guarantee null-termination, so you may need to add it manually if working with strings.\n\n```cpp\nmemmove(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str), AMDSMI_MAX_STRING_LENGTH);\n// Optionally ensure null-termination if info->version is used as a string\ninfo->version[AMDSMI_MAX_STRING_LENGTH - 1] = '\\0';\n```\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n\n___\n"
               },
               "properties": {
                 "tags": [
@@ -240,14 +156,14 @@
               }
             },
             {
-              "id": "133d62f5-dedc-3991-aabb-fabb956b7c17",
+              "id": "2848d831-a937-3fec-bcab-5526797940b7",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\n\"Prohibited C Function Identified\" is a vulnerability that occurs when a program uses a function that is considered insecure or unsafe. These functions are often prohibited because they can lead to various security issues such as buffer overflows, format string vulnerabilities, or other types of memory corruption.\n\nIn the provided code snippet, the `fopen` function is used, which can lead to vulnerabilities if not used correctly. The `fopen` function is used to open a file, but it does not perform any checks on the validity of the file path. This can lead to path traversal attacks if an attacker can control the `sysfs_path` variable.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used to read and write files respectively. These classes provide more safety features compared to the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` class from the `fstream` library. Here is how you can do it:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(sysfs_path.c_str(), std::ios::binary);\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## OWASP and CWE Links\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)\n\nPlease note that these links are subject to change and may not be available in the future."
+                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The code uses a memory copy function to copy data from one structure to another, but dataflow analysis suggests that the source and destination may refer to overlapping memory regions. This can lead to unpredictable program behavior or data corruption. Additionally, the analysis could not rule out the possibility that the source pointer is null, which would also result in undefined behavior. There are no explicit checks or guards in the code to prevent these issues. Therefore, this is a high-confidence, actionable issue that should be addressed to ensure program correctness and security.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory, ensure that the source and destination memory regions do not overlap. Add a runtime check before the memory copy operation to verify that the memory regions are distinct:\n\n```cpp\nif ((char*)&header_value + sizeof(metrics_table_header_t) <= (char*)&tmp_header_info ||\n    (char*)&tmp_header_info + sizeof(metrics_table_header_t) <= (char*)&header_value) {\n    std::memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t));\n} else {\n    // Handle overlap case appropriately, e.g., use memmove or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before performing the copy. If overlap is possible, handle it explicitly.\n\n## In Context Remediation 2\nIf overlapping memory regions are possible or cannot be ruled out, use a memory move function that safely handles overlapping regions instead of a direct memory copy:\n\n```cpp\nstd::memmove(&header_value, &tmp_header_info, sizeof(metrics_table_header_t));\n```\nThis change ensures that the operation is safe even if the source and destination overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
               },
               "properties": {
                 "tags": [
-                  "DS154189"
+                  "DS121708"
                 ]
               }
             },
@@ -264,18 +180,6 @@
               }
             },
             {
-              "id": "a7cece13-1c56-3fdf-a0c9-f78ec0f12833",
-              "help": {
-                "text": "",
-                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The analysis detected that the source and destination may overlap based on data flow, which can cause undefined behavior with functions like memcpy. There are no explicit checks or guards in the code to prevent this overlap, and neither the source nor the destination pointers are guaranteed to be non-overlapping. The verdict is marked as genuine, and the risk is further supported by the absence of null pointer risks and the lack of bounds or capacity checks.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory, ensure that the source and destination memory regions do not overlap before calling the memory copy function. You can add a runtime check to verify that the memory ranges are disjoint:\n\n```cpp\nif ((p_binary_data + b_size <= cache.data.data()) || (cache.data.data() + b_size <= p_binary_data)) {\n    std::memcpy(p_binary_data, cache.data.data(), b_size);\n} else {\n    // Handle overlap case appropriately, e.g., use memmove or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before performing the copy. If overlap is possible, handle it safely (e.g., by using memmove or by logging an error and aborting the operation).\n\n## In Context Remediation 2\nIf overlapping memory regions are possible and must be handled, replace the memory copy function with a function that is safe for overlapping regions, such as memmove:\n\n```cpp\nstd::memmove(p_binary_data, cache.data.data(), b_size);\n```\nThis function is designed to handle overlapping memory regions safely and will not result in undefined behavior.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS121708"
-                ]
-              }
-            },
-            {
               "id": "e6c1ef5d-5a8d-36c8-ae99-94952fcaca2a",
               "help": {
                 "text": "",
@@ -284,6 +188,18 @@
               "properties": {
                 "tags": [
                   "DS111237"
+                ]
+              }
+            },
+            {
+              "id": "133d62f5-dedc-3991-aabb-fabb956b7c17",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Prohibited C Function Identified\" is a vulnerability that occurs when a program uses a function that is considered insecure or unsafe. These functions are often prohibited because they can lead to various security issues such as buffer overflows, format string vulnerabilities, or other types of memory corruption.\n\nIn the provided code snippet, the `fopen` function is used, which can lead to vulnerabilities if not used correctly. The `fopen` function is used to open a file, but it does not perform any checks on the validity of the file path. This can lead to path traversal attacks if an attacker can control the `sysfs_path` variable.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used to read and write files respectively. These classes provide more safety features compared to the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` class from the `fstream` library. Here is how you can do it:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(sysfs_path.c_str(), std::ios::binary);\n```\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## OWASP and CWE Links\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)\n\nPlease note that these links are subject to change and may not be available in the future."
+              },
+              "properties": {
+                "tags": [
+                  "DS154189"
                 ]
               }
             },
@@ -300,18 +216,6 @@
               }
             },
             {
-              "id": "2848d831-a937-3fec-bcab-5526797940b7",
-              "help": {
-                "text": "",
-                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The code uses a memory copy function to copy data from one structure to another, but dataflow analysis suggests that the source and destination may refer to overlapping memory regions. This can lead to unpredictable program behavior or data corruption. Additionally, the analysis could not rule out the possibility that the source pointer is null, which would also result in undefined behavior. There are no explicit checks or guards in the code to prevent these issues. Therefore, this is a high-confidence, actionable issue that should be addressed to ensure program correctness and security.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory, ensure that the source and destination memory regions do not overlap. Add a runtime check before the memory copy operation to verify that the memory regions are distinct:\n\n```cpp\nif ((char*)&header_value + sizeof(metrics_table_header_t) <= (char*)&tmp_header_info ||\n    (char*)&tmp_header_info + sizeof(metrics_table_header_t) <= (char*)&header_value) {\n    std::memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t));\n} else {\n    // Handle overlap case appropriately, e.g., use memmove or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before performing the copy. If overlap is possible, handle it explicitly.\n\n## In Context Remediation 2\nIf overlapping memory regions are possible or cannot be ruled out, use a memory move function that safely handles overlapping regions instead of a direct memory copy:\n\n```cpp\nstd::memmove(&header_value, &tmp_header_info, sizeof(metrics_table_header_t));\n```\nThis change ensures that the operation is safe even if the source and destination overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
-              },
-              "properties": {
-                "tags": [
-                  "DS121708"
-                ]
-              }
-            },
-            {
               "id": "4bcffff6-2591-3fec-84ca-559766c225d2",
               "help": {
                 "text": "",
@@ -320,6 +224,18 @@
               "properties": {
                 "tags": [
                   "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "a7cece13-1c56-3fdf-a0c9-f78ec0f12833",
+              "help": {
+                "text": "",
+                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The analysis detected that the source and destination may overlap based on data flow, which can cause undefined behavior with functions like memcpy. There are no explicit checks or guards in the code to prevent this overlap, and neither the source nor the destination pointers are guaranteed to be non-overlapping. The verdict is marked as genuine, and the risk is further supported by the absence of null pointer risks and the lack of bounds or capacity checks.\n\n## In Context Remediation 1\nTo prevent undefined behavior when copying memory, ensure that the source and destination memory regions do not overlap before calling the memory copy function. You can add a runtime check to verify that the memory ranges are disjoint:\n\n```cpp\nif ((p_binary_data + b_size <= cache.data.data()) || (cache.data.data() + b_size <= p_binary_data)) {\n    std::memcpy(p_binary_data, cache.data.data(), b_size);\n} else {\n    // Handle overlap case appropriately, e.g., use memmove or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before performing the copy. If overlap is possible, handle it safely (e.g., by using memmove or by logging an error and aborting the operation).\n\n## In Context Remediation 2\nIf overlapping memory regions are possible and must be handled, replace the memory copy function with a function that is safe for overlapping regions, such as memmove:\n\n```cpp\nstd::memmove(p_binary_data, cache.data.data(), b_size);\n```\nThis function is designed to handle overlapping memory regions safely and will not result in undefined behavior.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n\n___\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS121708"
                 ]
               }
             },
@@ -384,6 +300,102 @@
               }
             },
             {
+              "id": "a41396cf-ab03-35b4-8b70-4fde0661a347",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability refers to the use of insecure C library functions in C++ code. These functions are often prone to buffer overflow attacks, format string vulnerabilities, integer overflow, etc. In this case, the function `atoi()` is used, which is a standard C library function that converts a string to an integer. The problem with `atoi()` is that it does not handle errors properly. If the input string cannot be converted into an integer, it returns zero, which can lead to unexpected behavior.\n\n## Mitigation Advice\n\nAvoid using `atoi()`. Instead, use functions that can handle errors properly. In C++, you can use `std::stoi()`, which throws an exception if the conversion fails. Always validate and sanitize user input to prevent injection attacks.\n\n## Source Code Fix Recommendation\n\nReplace `atoi(ev_str)` with `std::stoi(ev_str)`. Here is the corrected code:\n\n```cpp\n#include <string>\n\ntry {\n    int ev = std::stoi(ev_str);\n} catch (std::invalid_argument const &e) {\n    // Handle the error, e.g., by logging it and exiting the program\n} catch (std::out_of_range const &e) {\n    // Handle the error\n}\n```\n\n## Library Dependencies\n\nThe code requires the `<string>` library.\n\n## References\n\n- [CWE-242: Use of Inherently Dangerous Function](https://cwe.mitre.org/data/definitions/242.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS154189"
+                ]
+              }
+            },
+            {
+              "id": "91133006-a87f-39e5-a5e1-d357fb130918",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability refers to the use of insecure C library functions in C++ code. These functions are often prone to buffer overflow attacks, format string vulnerabilities, integer overflow, etc. In this case, the function `atoi()` is used, which is a standard C library function that converts a string to an integer. The problem with `atoi()` is that it does not handle errors properly. If the input string cannot be converted into an integer, it returns zero, which can lead to unexpected behavior.\n\n## Mitigation Advice\n\nAvoid using `atoi()`. Instead, use functions that can handle errors properly. In C++, you can use `std::stoi()`, which throws an exception if the conversion fails. Always validate and sanitize user input to prevent injection attacks.\n\n## Source Code Fix Recommendation\n\nReplace `atoi(ev_str)` with `std::stoi(ev_str)`. Here is the corrected code:\n\n```cpp\n#include <string>\n\ntry {\n    int ev = std::stoi(ev_str);\n} catch (std::invalid_argument const &e) {\n    // Handle the error, e.g., by logging it and exiting the program\n} catch (std::out_of_range const &e) {\n    // Handle the error\n}\n```\n\n## Library Dependencies\n\nThe code requires the `<string>` library.\n\n## References\n\n- [CWE-242: Use of Inherently Dangerous Function](https://cwe.mitre.org/data/definitions/242.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS154189"
+                ]
+              }
+            },
+            {
+              "id": "827e3500-579e-3d93-ac37-6a17d28e3ec8",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Prohibited C Function Found\" is a vulnerability that arises when a C++ program uses a function that is considered unsafe or insecure. These functions are often prohibited because they can lead to serious security issues such as buffer overflows, format string vulnerabilities, or integer overflows. In this case, the `fopen` function is used, which can lead to vulnerabilities if the file name (`fname`) is not properly validated or controlled.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used for file input and output operations respectively. These classes provide better control and error handling than the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` or `ofstream` class from the `fstream` library. Here is an example of how to open a file for reading in binary mode using `ifstream`:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(fname, std::ios::binary);\nif (!file) {\n    // Handle error\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## References\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS154189"
+                ]
+              }
+            },
+            {
+              "id": "c1a4eaa8-48df-33c3-b7c2-fd9ccca7ea32",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe vulnerability in question is a buffer overflow vulnerability that can occur in the C function `strlen()`. This function is used to determine the length of a string, but it does not perform any bounds checking. If an attacker can control the input to `strlen()`, they can cause it to read beyond the end of the intended buffer, potentially leading to a crash or code execution.\n\nIn the provided code snippet, `sprintf()` is used to append a string to `(*kv)[*kvnum].name`. The length of the original string is determined using `strlen()`, and the new string is written starting at that position. If the original string is not null-terminated, `strlen()` could return a value larger than the actual buffer size, leading to a buffer overflow when `sprintf()` tries to write the new string.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should ensure that all strings are properly null-terminated before passing them to `strlen()`. Additionally, consider using safer alternatives to `sprintf()`, such as `snprintf()`, which takes an additional parameter specifying the maximum number of characters to be written to the output string, including the null character. This can prevent buffer overflows if used correctly.\n\n## Source Code Fix Recommendation\n\nHere is a recommended fix for the provided code snippet:\n\n```c++\nchar *name = (*kv)[*kvnum].name;\nsize_t len = strlen(name);\nif (len < sizeof((*kv)[*kvnum].name)) {\n    snprintf(name + len, sizeof((*kv)[*kvnum].name) - len, \".smn[%\" PRId64 \"]\", cur_smn);\n}\n```\n\nThis code first checks if the length of the original string is less than the buffer size before attempting to append the new string. If the original string is not null-terminated, `strlen()` will return a value equal to or larger than the buffer size, and the `snprintf()` call will be skipped.\n\n## Library Dependencies\n\nThe provided code snippet requires the following library dependencies:\n\n- `stdio.h` for `sprintf()` and `snprintf()`\n- `string.h` for `strlen()`\n- `inttypes.h` for `PRId64`\n\n## OWASP and CWE Links\n\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "f4636ae9-3aeb-37f9-a8f2-67b5480d36a9",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe vulnerability in question is a buffer overflow vulnerability that can occur when using the `strlen` function in C++. This function does not check for the end of the string, and if the string is not null-terminated, it can lead to a buffer overflow. This can cause the program to crash or, in the worst case, allow an attacker to execute arbitrary code.\n\nIn the provided code snippet, the `sprintf` function is used to append a string to `(*kv)[*kvnum].name`. If the length of the resulting string exceeds the size of the buffer, a buffer overflow will occur.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should always ensure that your strings are null-terminated and that you do not exceed the size of your buffers. You should also consider using safer alternatives to `sprintf`, such as `snprintf`, which allows you to specify the maximum number of characters to be written to the buffer, preventing buffer overflows.\n\n## Source Code Fix Recommendation\n\nHere is a safer version of the code snippet using `snprintf`:\n\n```cpp\nsnprintf((*kv)[*kvnum].name + strlen((*kv)[*kvnum].name), sizeof((*kv)[*kvnum].name) - strlen((*kv)[*kvnum].name), \".instance[%\" PRId64 \"]\", cur_instance);\n```\n\n## Library Dependencies\n\nThe code snippet requires the following libraries:\n\n- `stdio.h` for `sprintf` and `snprintf`\n- `string.h` for `strlen`\n- `inttypes.h` for `PRId64`\n\n## References\n\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "eb2cd348-d530-3f57-93ab-407dc81c48a7",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe vulnerability in question is a buffer overflow vulnerability that can occur in the C function `strlen()`. This function is used to determine the length of a string, but it does not perform any bounds checking. If the string is not null-terminated, `strlen()` will continue reading until it encounters a null byte, potentially leading to a buffer overflow. This can result in undefined behavior, including program crashes, data corruption, and even code execution.\n\nIn the provided code snippet, `sprintf()` is used to append a formatted string to the end of an existing string. However, if the size of the formatted string exceeds the remaining space in the destination buffer, a buffer overflow will occur.\n\n## Mitigation Advice\n\nTo prevent buffer overflow vulnerabilities, it is important to always perform bounds checking before writing to a buffer. This can be done by ensuring that the size of the data being written does not exceed the size of the buffer.\n\nIn addition, consider using safer alternatives to `strlen()` and `sprintf()`, such as `strnlen()` and `snprintf()`, which take an additional parameter specifying the maximum number of bytes to read or write.\n\n## Source Code Fix Recommendation\n\nHere is a recommended fix for the provided code snippet:\n\n```cpp\nsize_t name_len = strnlen((*kv)[*kvnum].name, MAX_NAME_LEN);\nsnprintf((*kv)[*kvnum].name + name_len, MAX_NAME_LEN - name_len, \"[%\" PRId64 \"]\", y);\n```\n\nIn this fix, `strnlen()` is used to safely determine the length of the string, and `snprintf()` is used to prevent writing beyond the end of the buffer. `MAX_NAME_LEN` should be defined as the size of the `name` buffer.\n\n## Library Dependencies\n\nThe code snippet requires the following library dependencies:\n\n- `stdio.h` for `sprintf()`\n- `string.h` for `strlen()`\n- `inttypes.h` for `PRId64`\n\n## References\n\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "d47146c4-8532-3e70-8447-827a2f71d817",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\n\"Prohibited C Function Found\" is a vulnerability that arises when a C++ program uses a function that is considered unsafe or insecure. These functions are often prohibited because they can lead to serious security issues such as buffer overflows, format string vulnerabilities, or integer overflows. In this case, the `fopen` function is used, which can lead to vulnerabilities if the file name (`fname`) is not properly validated or controlled.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, it is recommended to use safer alternatives to the `fopen` function. In C++, the `fstream` library provides the `ifstream` and `ofstream` classes that can be used for file input and output operations respectively. These classes provide better control and error handling than the `fopen` function.\n\n## Source Code Fix Recommendation\n\nReplace the `fopen` function with the `ifstream` or `ofstream` class from the `fstream` library. Here is an example of how to open a file for reading in binary mode using `ifstream`:\n\n```cpp\n#include <fstream>\n\nstd::ifstream file(fname, std::ios::binary);\nif (!file) {\n    // Handle error\n}\n```\n\n## Library Dependencies\n\nThe code example requires the following library:\n\n- `<fstream>`: This library provides facilities for file-based input and output.\n\n## References\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS154189"
+                ]
+              }
+            },
+            {
+              "id": "5ae42019-828f-382e-8ef2-c543c110ffc1",
+              "help": {
+                "text": "",
+                "markdown": "This finding is classified as a genuine vulnerability because the analysis identified a risk of undefined behavior due to possible overlap between the source and destination memory regions in the memory copy operation. The verdict is marked as 'GENUINE', and the classification explicitly states there is a risk of undefined behavior. The analysis determined that overlap is feasible based on data flow between the source and destination, which can cause unpredictable results with memcpy. Additionally, the source may be null at this call site, which could also lead to a crash or further undefined behavior. There are no explicit guards or checks to prevent these issues, and the destination is not a pointer-based member, making the risk more pronounced. Developers should address both the potential for overlapping memory regions and the possibility of a null source pointer to ensure safe and predictable behavior.\n\n## In Context Remediation 1\nBefore performing the memory copy, ensure that the source and destination memory regions do not overlap. Add a runtime check to verify that the memory regions are either completely separate or use a safer function if overlap is possible. For example:\n\n```cpp\nif ((char*)&pmmetrics_version + sizeof(pmmetrics_version) <= (char*)&buf1[12] ||\n    (char*)&buf1[12] + 4 <= (char*)&pmmetrics_version) {\n    memcpy(&pmmetrics_version, &buf1[12], 4);\n} else {\n    // Handle overlap case or log an error\n}\n```\nThis check ensures that the memory regions do not overlap before calling memcpy. If overlap is possible, handle it appropriately (e.g., log an error or use a different approach).\n\n## In Context Remediation 2\nIf there is any possibility that the source and destination memory regions may overlap, use the `memmove` function instead of `memcpy`, as `memmove` is designed to handle overlapping memory safely:\n\n```cpp\nmemmove(&pmmetrics_version, &buf1[12], 4);\n```\nThis change ensures that the operation is safe even if the memory regions overlap.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [NIST Glossary: Buffer Overflow](https://csrc.nist.gov/glossary/term/buffer_overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-787: Out-of-bounds Write](https://cwe.mitre.org/data/definitions/787.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n\n___\n"
+              },
+              "properties": {
+                "tags": [
+                  "DS121708"
+                ]
+              }
+            },
+            {
               "id": "036665bd-f247-356c-9339-825429e7e8c7",
               "help": {
                 "text": "",
@@ -444,6 +456,42 @@
               }
             },
             {
+              "id": "7a0fbe1c-3fe0-3309-b9b3-151c1cb05f8e",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `strcpy` function in C++ is a standard library function that copies a string from source to destination. It is considered unsafe because it does not check the array bounds of the destination buffer, which can lead to buffer overflow vulnerabilities if the source string is larger than the destination buffer.\n\nBuffer overflow vulnerabilities can lead to various security issues, including arbitrary code execution, denial of service, or information disclosure.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, you should avoid using `strcpy` and instead use safer string handling functions that include buffer size as a parameter, such as `strncpy`, `strlcpy`, or `memcpy`. These functions prevent buffer overflow by ensuring that no more than the specified number of bytes is written to the destination buffer.\n\n## Source Code Fix Recommendation\n\nHere is a fixed version of the code using `strncpy`:\n\n```cpp\nstrncpy(info.container_name, container_id.c_str(), sizeof(info.container_name) - 1);\ninfo.container_name[sizeof(info.container_name) - 1] = '\\0';\n```\n\nThis code will copy the string from `container_id` to `info.container_name`, but it will not write more than `sizeof(info.container_name) - 1` bytes. The last byte is set to the null character to ensure that `info.container_name` is a null-terminated string.\n\n## Library Dependencies\n\nThe code example requires the following library dependencies:\n\n- `<cstring>`: This library provides the `strncpy` function.\n\n## References\n\n- [OWASP C++ Secure Coding Practices](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
+              },
+              "properties": {
+                "tags": [
+                  "DS185832"
+                ]
+              }
+            },
+            {
+              "id": "fb30d248-8c61-3853-ad65-ad3708750aae",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `strlen()` function in C and C++ is used to find the length of a string. However, it can lead to vulnerabilities if not used properly. The function counts the number of characters in a string until it reaches a null character (`'\\0'`). If the string is not null-terminated, `strlen()` will continue reading memory beyond the intended boundary, leading to a buffer overflow vulnerability. This can result in crashes, incorrect behavior, or potential execution of malicious code.\n\nIn the provided code snippet, `strlen(info.container_name) > 0`, there is a potential risk if `info.container_name` is not a null-terminated string. \n\n## Mitigation Advice\n\nTo mitigate this vulnerability, always ensure that strings are null-terminated. Avoid using `strlen()` on strings that may not be null-terminated. Instead, consider using safer alternatives such as `strnlen()`, which takes an additional parameter to specify the maximum length of the string.\n\n## Source Code Fix Recommendation\n\nReplace the `strlen()` function with `strnlen()`. The second parameter to `strnlen()` should be the maximum size of `info.container_name`. \n\n```cpp\nstrnlen(info.container_name, sizeof(info.container_name)) > 0\n```\n\n## Library Dependencies\n\nThe `strlen()` function is part of the C standard library, so no additional libraries are needed for the original code. The `strnlen()` function is also part of the C standard library, but it is not available in all environments. If `strnlen()` is not available, you may need to implement a similar function yourself.\n\n## References\n\n- [OWASP C/C++ Vulnerabilities](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n- [CWE-126: Buffer Over-read](https://cwe.mitre.org/data/definitions/126.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
+              "id": "698121a6-d90d-3bac-a372-926809dbf2c7",
+              "help": {
+                "text": "",
+                "markdown": "## Description\n\nThe `strlen()` function in C and C++ is used to find the length of a string. However, it can lead to vulnerabilities if not used properly. The function counts the number of characters in a string until it reaches a null character (`'\\0'`). If the string is not null-terminated, `strlen()` will continue reading memory until it encounters a null character, which can lead to buffer overflows, memory corruption, and other undefined behavior.\n\nIn the provided code snippet, `strlen(container_type_name[i])`, the vulnerability arises if `container_type_name[i]` is not a null-terminated string.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, ensure that all strings are null-terminated before passing them to `strlen()`. Also, consider using safer alternatives to `strlen()`, such as `strnlen()`, which takes an additional parameter specifying the maximum number of characters to read.\n\n## Source Code Fix Recommendation\n\nAssuming `container_type_name` is an array of strings, you can ensure null-termination as follows:\n\n```cpp\n// Ensure null-termination\ncontainer_type_name[i][sizeof(container_type_name[i]) - 1] = '\\0';\n\n// Now it's safe to call strlen\nsize_t len = strlen(container_type_name[i]);\n```\n\nIf you have control over the creation of the strings, ensure they are null-terminated at creation time.\n\n## Library Dependencies\n\nThe `strlen()` function is part of the C standard library, so no additional libraries are needed.\n\n## References\n\n- [OWASP C/C++ Vulnerabilities](https://owasp.org/www-pdf-archive/OWASP_SCP_Quick_Reference_Guide_v2.pdf)\n- [CWE-126: Buffer Over-read](https://cwe.mitre.org/data/definitions/126.html)"
+              },
+              "properties": {
+                "tags": [
+                  "DS140021"
+                ]
+              }
+            },
+            {
               "id": "6dd7f938-a4ed-3f9d-8c72-ba0e18fc7a00",
               "help": {
                 "text": "",
@@ -456,22 +504,22 @@
               }
             },
             {
-              "id": "a41396cf-ab03-35b4-8b70-4fde0661a347",
+              "id": "06b1e788-5be4-3467-aaae-0a2c320ca462",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability refers to the use of insecure C library functions in C++ code. These functions are often prone to buffer overflow attacks, format string vulnerabilities, integer overflow, etc. In this case, the function `atoi()` is used, which is a standard C library function that converts a string to an integer. The problem with `atoi()` is that it does not handle errors properly. If the input string cannot be converted into an integer, it returns zero, which can lead to unexpected behavior.\n\n## Mitigation Advice\n\nAvoid using `atoi()`. Instead, use functions that can handle errors properly. In C++, you can use `std::stoi()`, which throws an exception if the conversion fails. Always validate and sanitize user input to prevent injection attacks.\n\n## Source Code Fix Recommendation\n\nReplace `atoi(ev_str)` with `std::stoi(ev_str)`. Here is the corrected code:\n\n```cpp\n#include <string>\n\ntry {\n    int ev = std::stoi(ev_str);\n} catch (std::invalid_argument const &e) {\n    // Handle the error, e.g., by logging it and exiting the program\n} catch (std::out_of_range const &e) {\n    // Handle the error\n}\n```\n\n## Library Dependencies\n\nThe code requires the `<string>` library.\n\n## References\n\n- [CWE-242: Use of Inherently Dangerous Function](https://cwe.mitre.org/data/definitions/242.html)"
+                "markdown": "This finding is considered a genuine vulnerability because the classification indicates a risk of undefined behavior due to the possibility that either the source or destination pointer may be null, and there are no obvious null pointer checks before the buffer operation. The code copies a string from a C++ string object to a destination buffer using a function that does not inherently protect against null pointers. The source is a C-style string, which is generally safe, but the destination buffer may be null, as there is no evidence of a guard or check to ensure it is valid. The absence of a null check for the destination pointer is a significant risk, as dereferencing a null pointer will cause a crash or undefined behavior. The probability of this being a false positive is very low due to the lack of safety checks and the explicit risk noted in the classification.\n\n## In Context Remediation 1\nBefore performing the copy operation, ensure that the destination buffer is not null. Add an explicit check for the destination pointer and handle the error appropriately if it is null. For example:\n\n```cpp\nif (info.name != nullptr) {\n    strncpy(info.name, name.c_str(), std::min((unsigned long)AMDSMI_MAX_STRING_LENGTH, name.length()));\n} else {\n    // Handle error: destination buffer is null\n    // For example, log an error or return an error code\n}\n```\n\nThis prevents undefined behavior by ensuring the destination buffer is valid before use.\n\n## In Context Remediation 2\nIf the destination buffer is a member of a struct or class and should always be valid, review the initialization logic to guarantee it is never null. If dynamic allocation is involved, ensure allocation succeeds before this operation. For example:\n\n```cpp\nif (info.name == nullptr) {\n    info.name = new char[AMDSMI_MAX_STRING_LENGTH];\n    if (info.name == nullptr) {\n        // Handle allocation failure\n    }\n}\nstrncpy(info.name, name.c_str(), std::min((unsigned long)AMDSMI_MAX_STRING_LENGTH, name.length()));\n```\n\nThis ensures the buffer is allocated before use.\n\n## In Context Remediation 3\nConsider using safer string copy functions that check for null pointers or provide additional safety guarantees, such as `strlcpy` (if available) or C++ string assignment, but only if it fits the context and requirements. Always validate pointers before use.\n\n## References\n- [OWASP C-Based Toolchain Hardening Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/C-Based_Toolchain_Hardening_Cheat_Sheet.html)\n- [NIST Buffer Overflow](https://csrc.nist.gov/glossary/term/buffer_overflow)\n- [CWE-119: Improper Restriction of Operations within the Bounds of a Memory Buffer](https://cwe.mitre.org/data/definitions/119.html)\n- [CWE-120: Buffer Copy without Checking Size of Input ('Classic Buffer Overflow')](https://cwe.mitre.org/data/definitions/120.html)\n- [CWE-476: NULL Pointer Dereference](https://cwe.mitre.org/data/definitions/476.html)\n- [OWASP Buffer Overflow](https://owasp.org/www-community/vulnerabilities/Buffer_Overflow)\n- [OWASP Top Ten](https://owasp.org/www-project-top-ten/)\n\n___\n"
               },
               "properties": {
                 "tags": [
-                  "DS154189"
+                  "DS111237"
                 ]
               }
             },
             {
-              "id": "91133006-a87f-39e5-a5e1-d357fb130918",
+              "id": "42e975d8-9304-3dd4-b26c-2abd9fceca79",
               "help": {
                 "text": "",
-                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability refers to the use of insecure C library functions in C++ code. These functions are often prone to buffer overflow attacks, format string vulnerabilities, integer overflow, etc. In this case, the function `atoi()` is used, which is a standard C library function that converts a string to an integer. The problem with `atoi()` is that it does not handle errors properly. If the input string cannot be converted into an integer, it returns zero, which can lead to unexpected behavior.\n\n## Mitigation Advice\n\nAvoid using `atoi()`. Instead, use functions that can handle errors properly. In C++, you can use `std::stoi()`, which throws an exception if the conversion fails. Always validate and sanitize user input to prevent injection attacks.\n\n## Source Code Fix Recommendation\n\nReplace `atoi(ev_str)` with `std::stoi(ev_str)`. Here is the corrected code:\n\n```cpp\n#include <string>\n\ntry {\n    int ev = std::stoi(ev_str);\n} catch (std::invalid_argument const &e) {\n    // Handle the error, e.g., by logging it and exiting the program\n} catch (std::out_of_range const &e) {\n    // Handle the error\n}\n```\n\n## Library Dependencies\n\nThe code requires the `<string>` library.\n\n## References\n\n- [CWE-242: Use of Inherently Dangerous Function](https://cwe.mitre.org/data/definitions/242.html)"
+                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability in C++ refers to the use of certain C standard library functions that are considered unsafe due to their potential to cause buffer overflow, format string vulnerabilities, or other types of memory corruption. In the provided code, the `printf` function is used, which can lead to format string vulnerabilities if the format string contains user-supplied data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, avoid using unsafe C functions like `printf`. Instead, use safer alternatives that do not have these vulnerabilities. For example, consider using type-safe C++ I/O operations or safer C library functions.\n\n## Source Code Fix Recommendation\n\nReplace the `printf` function with a safer alternative. In C++, you can use `std::cout` along with the stream insertion operator (`<<`). Here's how you can rewrite the provided code:\n\n```cpp\n#include <iostream>\n\nstd::cout << \"AMDSMI, Success, \" << driver_name << \" found \\\"\" << file_name << \"\\\" and returns:\" << GOAMDSMI_STATUS_SUCCESS << \"\\n\";\n```\n\n## Library Dependencies\n\nThe original code requires the following library:\n\n- `stdio.h` for `printf`\n\nThe fixed code requires the following library:\n\n- `iostream` for `std::cout`\n\n## OWASP and CWE Links\n\n- [CWE-134: Use of Externally-Controlled Format String](https://cwe.mitre.org/data/definitions/134.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
               },
               "properties": {
                 "tags": [
@@ -484,18 +532,6 @@
               "help": {
                 "text": "",
                 "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability in C++ refers to the use of certain C standard library functions that are known to be dangerous due to their potential to cause buffer overflows, format string vulnerabilities, or other problems. In the provided code, the `printf` function is used, which can lead to format string vulnerabilities if the format string contains user-supplied data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, avoid using dangerous C functions like `printf` without proper validation and sanitization. Instead, use safer alternatives that do not have these vulnerabilities. For example, consider using `snprintf` or `fprintf` with a fixed format string.\n\n## Source Code Fix Recommendation\n\nHere is a safer version of the provided code:\n\n```cpp\n#include <cstdio>\n\nconst int buffer_size = 1024;\nchar buffer[buffer_size];\nsnprintf(buffer, buffer_size, \"AMDSMI, Status, %s not found, missing \\\"%s\\\" and returns:%d\\n\", driver_name, file_name, GOAMDSMI_STATUS_FAILURE);\nputs(buffer);\n```\n\n## Library Dependencies\n\nThe code example requires the following library to execute properly:\n\n- `<cstdio>`: This library provides functions for performing input and output operations.\n\n## OWASP and CWE Links\n\n- [OWASP C++](https://owasp.org/www-pdf-archive/OWASP_SCP_v2.pdf)\n- [CWE-676: Use of Potentially Dangerous Function](https://cwe.mitre.org/data/definitions/676.html)\n\nPlease note that these links are active and accessible to anonymous users at the time of writing this report."
-              },
-              "properties": {
-                "tags": [
-                  "DS154189"
-                ]
-              }
-            },
-            {
-              "id": "42e975d8-9304-3dd4-b26c-2abd9fceca79",
-              "help": {
-                "text": "",
-                "markdown": "## Description\n\n\"Detected Prohibited C Function\" vulnerability in C++ refers to the use of certain C standard library functions that are considered unsafe due to their potential to cause buffer overflow, format string vulnerabilities, or other types of memory corruption. In the provided code, the `printf` function is used, which can lead to format string vulnerabilities if the format string contains user-supplied data.\n\n## Mitigation Advice\n\nTo mitigate this vulnerability, avoid using unsafe C functions like `printf`. Instead, use safer alternatives that do not have these vulnerabilities. For example, consider using type-safe C++ I/O operations or safer C library functions.\n\n## Source Code Fix Recommendation\n\nReplace the `printf` function with a safer alternative. In C++, you can use `std::cout` along with the stream insertion operator (`<<`). Here's how you can rewrite the provided code:\n\n```cpp\n#include <iostream>\n\nstd::cout << \"AMDSMI, Success, \" << driver_name << \" found \\\"\" << file_name << \"\\\" and returns:\" << GOAMDSMI_STATUS_SUCCESS << \"\\n\";\n```\n\n## Library Dependencies\n\nThe original code requires the following library:\n\n- `stdio.h` for `printf`\n\nThe fixed code requires the following library:\n\n- `iostream` for `std::cout`\n\n## OWASP and CWE Links\n\n- [CWE-134: Use of Externally-Controlled Format String](https://cwe.mitre.org/data/definitions/134.html)\n\nPlease note that the links provided are active and accessible to anonymous users at the time of writing this report."
               },
               "properties": {
                 "tags": [
@@ -515,175 +551,7 @@
       "language": "en-US",
       "results": [
         {
-          "ruleId": "fb30d248-8c61-3853-ad65-ad3708750aae",
-          "kind": "fail",
-          "level": "note",
-          "message": {
-            "text": "Detected Vulnerability in C Function (strlen)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/amd_smi/fdinfo.cc"
-                },
-                "region": {
-                  "startLine": 212,
-                  "startColumn": 8,
-                  "endLine": 212,
-                  "endColumn": 35,
-                  "charOffset": 7668,
-                  "charLength": 27,
-                  "snippet": {
-                    "text": "strlen(info.container_name)",
-                    "rendered": {
-                      "text": "strlen(info.container_name)",
-                      "markdown": "`strlen(info.container_name)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7668,
-                        "charLength": 27
-                      },
-                      "insertedContent": {
-                        "text": "strlen_s(info.container_name, <size of info.container_name>)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": {
-                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7668,
-                        "charLength": 27
-                      },
-                      "insertedContent": {
-                        "text": "strnlen(info.container_name, <size of info.container_name>)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "BestPractice",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "d47146c4-8532-3e70-8447-827a2f71d817",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"Prohibited C Function Found\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
-                },
-                "region": {
-                  "startLine": 126,
-                  "startColumn": 13,
-                  "endLine": 126,
-                  "endColumn": 18,
-                  "charOffset": 4057,
-                  "charLength": 5,
-                  "snippet": {
-                    "text": "fopen",
-                    "rendered": {
-                      "text": "fopen",
-                      "markdown": "`fopen`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "827e3500-579e-3d93-ac37-6a17d28e3ec8",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "\"Prohibited C Function Found\""
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
-                },
-                "region": {
-                  "startLine": 261,
-                  "startColumn": 13,
-                  "endLine": 261,
-                  "endColumn": 18,
-                  "charOffset": 8856,
-                  "charLength": 5,
-                  "snippet": {
-                    "text": "fopen",
-                    "rendered": {
-                      "text": "fopen",
-                      "markdown": "`fopen`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "5ae42019-828f-382e-8ef2-c543c110ffc1",
+          "ruleId": "37cdc37c-048b-35e7-9d93-b1aa2ebfb859",
           "kind": "fail",
           "level": "note",
           "message": {
@@ -693,20 +561,20 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  "uri": "src/amd_smi/amd_smi.cc"
                 },
                 "region": {
-                  "startLine": 140,
-                  "startColumn": 4,
-                  "endLine": 140,
-                  "endColumn": 44,
-                  "charOffset": 4406,
-                  "charLength": 40,
+                  "startLine": 4982,
+                  "startColumn": 21,
+                  "endLine": 4982,
+                  "endColumn": 84,
+                  "charOffset": 208343,
+                  "charLength": 63,
                   "snippet": {
-                    "text": "memcpy(&pmmetrics_version, &buf1[12], 4)",
+                    "text": "memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)",
                     "rendered": {
-                      "text": "memcpy(&pmmetrics_version, &buf1[12], 4)",
-                      "markdown": "`memcpy(&pmmetrics_version, &buf1[12], 4)`"
+                      "text": "memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)",
+                      "markdown": "`memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)`"
                     }
                   },
                   "sourceLanguage": "cpp"
@@ -722,16 +590,16 @@
               "artifactChanges": [
                 {
                   "artifactLocation": {
-                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                    "uri": "src/amd_smi/amd_smi.cc"
                   },
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 4406,
-                        "charLength": 40
+                        "charOffset": 208343,
+                        "charLength": 63
                       },
                       "insertedContent": {
-                        "text": "memcpy_s(&pmmetrics_version, <size of &pmmetrics_version>,  &buf1[12],  4)"
+                        "text": "memcpy_s(cpu_set, <size of cpu_set>,  bitmask.data(),  cpu_set_size * sizeof(uint64_t)"
                       }
                     }
                   ]
@@ -744,270 +612,6 @@
             "DevSkimConfidence": "High",
             "tags": [
               "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "698121a6-d90d-3bac-a372-926809dbf2c7",
-          "kind": "fail",
-          "level": "note",
-          "message": {
-            "text": "Detected Vulnerability in C Function (strlen)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/amd_smi/fdinfo.cc"
-                },
-                "region": {
-                  "startLine": 207,
-                  "startColumn": 35,
-                  "endLine": 207,
-                  "endColumn": 65,
-                  "charOffset": 7531,
-                  "charLength": 30,
-                  "snippet": {
-                    "text": "strlen(container_type_name[i])",
-                    "rendered": {
-                      "text": "strlen(container_type_name[i])",
-                      "markdown": "`strlen(container_type_name[i])`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7531,
-                        "charLength": 30
-                      },
-                      "insertedContent": {
-                        "text": "strlen_s(container_type_name[i], <size of container_type_name[i]>)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": {
-                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7531,
-                        "charLength": 30
-                      },
-                      "insertedContent": {
-                        "text": "strnlen(container_type_name[i], <size of container_type_name[i]>)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "BestPractice",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "06b1e788-5be4-3467-aaae-0a2c320ca462",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Banned C function detected (strncpy)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/amd_smi/fdinfo.cc"
-                },
-                "region": {
-                  "startLine": 198,
-                  "startColumn": 2,
-                  "endLine": 199,
-                  "endColumn": 34,
-                  "charOffset": 7050,
-                  "charLength": 67,
-                  "snippet": {
-                    "text": "strncpy(info.name, name.c_str(),\n          std::min((unsigned long)",
-                    "rendered": {
-                      "text": "strncpy(info.name, name.c_str(),\n          std::min((unsigned long)",
-                      "markdown": "`strncpy(info.name, name.c_str(),\n          std::min((unsigned long)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7050,
-                        "charLength": 67
-                      },
-                      "insertedContent": {
-                        "text": "strcpy_s(info.name, \n          std::min((unsigned long,  name.c_str())"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/fdinfo.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 7050,
-                        "charLength": 67
-                      },
-                      "insertedContent": {
-                        "text": "strlcpy(info.name,  name.c_str(), \n          std::min((unsigned long)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "51972bad-11a3-33a2-a9c7-7b7177282a69",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Banned C function detected (strncpy)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/amd_smi/amd_smi.cc"
-                },
-                "region": {
-                  "startLine": 6125,
-                  "startColumn": 4,
-                  "endLine": 6125,
-                  "endColumn": 82,
-                  "charOffset": 241852,
-                  "charLength": 78,
-                  "snippet": {
-                    "text": "strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)",
-                    "rendered": {
-                      "text": "strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)",
-                      "markdown": "`strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/amd_smi.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 241852,
-                        "charLength": 78
-                      },
-                      "insertedContent": {
-                        "text": "strcpy_s(cpu_info->model_name,  AMDSMI_MAX_STRING_LENGTH -1,  model_name.c_str())"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/amd_smi.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 241852,
-                        "charLength": 78
-                      },
-                      "insertedContent": {
-                        "text": "strlcpy(cpu_info->model_name,  model_name.c_str(),  AMDSMI_MAX_STRING_LENGTH -1)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
             ]
           }
         },
@@ -1142,11 +746,11 @@
           }
         },
         {
-          "ruleId": "37cdc37c-048b-35e7-9d93-b1aa2ebfb859",
+          "ruleId": "51972bad-11a3-33a2-a9c7-7b7177282a69",
           "kind": "fail",
-          "level": "note",
+          "level": "error",
           "message": {
-            "text": "Problematic C function detected (memcpy)"
+            "text": "Banned C function detected (strncpy)"
           },
           "locations": [
             {
@@ -1155,17 +759,17 @@
                   "uri": "src/amd_smi/amd_smi.cc"
                 },
                 "region": {
-                  "startLine": 4982,
-                  "startColumn": 21,
-                  "endLine": 4982,
-                  "endColumn": 84,
-                  "charOffset": 208343,
-                  "charLength": 63,
+                  "startLine": 6125,
+                  "startColumn": 4,
+                  "endLine": 6125,
+                  "endColumn": 82,
+                  "charOffset": 241852,
+                  "charLength": 78,
                   "snippet": {
-                    "text": "memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)",
+                    "text": "strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)",
                     "rendered": {
-                      "text": "memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)",
-                      "markdown": "`memcpy(cpu_set, bitmask.data(), cpu_set_size * sizeof(uint64_t)`"
+                      "text": "strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)",
+                      "markdown": "`strncpy(cpu_info->model_name, model_name.c_str(), AMDSMI_MAX_STRING_LENGTH -1)`"
                     }
                   },
                   "sourceLanguage": "cpp"
@@ -1176,7 +780,7 @@
           "fixes": [
             {
               "description": {
-                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
               },
               "artifactChanges": [
                 {
@@ -1186,11 +790,34 @@
                   "replacements": [
                     {
                       "deletedRegion": {
-                        "charOffset": 208343,
-                        "charLength": 63
+                        "charOffset": 241852,
+                        "charLength": 78
                       },
                       "insertedContent": {
-                        "text": "memcpy_s(cpu_set, <size of cpu_set>,  bitmask.data(),  cpu_set_size * sizeof(uint64_t)"
+                        "text": "strcpy_s(cpu_info->model_name,  AMDSMI_MAX_STRING_LENGTH -1,  model_name.c_str())"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/amd_smi.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 241852,
+                        "charLength": 78
+                      },
+                      "insertedContent": {
+                        "text": "strlcpy(cpu_info->model_name,  model_name.c_str(),  AMDSMI_MAX_STRING_LENGTH -1)"
                       }
                     }
                   ]
@@ -1199,10 +826,10 @@
             }
           ],
           "properties": {
-            "DevSkimSeverity": "BestPractice",
+            "DevSkimSeverity": "Important",
             "DevSkimConfidence": "High",
             "tags": [
-              "API.DangerousAPI.ProblematicFunction"
+              "API.DangerousAPI.BannedFunction"
             ]
           }
         },
@@ -1280,94 +907,6 @@
           ],
           "properties": {
             "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "13437bfe-bd00-3bcd-b8e7-a062cdad5011",
-          "kind": "fail",
-          "level": "error",
-          "message": {
-            "text": "Banned C function detected (strncpy)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "src/amd_smi/amd_smi.cc"
-                },
-                "region": {
-                  "startLine": 3808,
-                  "startColumn": 8,
-                  "endLine": 3809,
-                  "endColumn": 41,
-                  "charOffset": 164329,
-                  "charLength": 111,
-                  "snippet": {
-                    "text": "strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)",
-                    "rendered": {
-                      "text": "strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)",
-                      "markdown": "`strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/amd_smi.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 164329,
-                        "charLength": 111
-                      },
-                      "insertedContent": {
-                        "text": "strcpy_s(info->version, \n                AMDSMI_MAX_STRING_LENGTH,  reinterpret_cast<char *>(vbios.vbios_ver_str))"
-                      }
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "description": {
-                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "src/amd_smi/amd_smi.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 164329,
-                        "charLength": 111
-                      },
-                      "insertedContent": {
-                        "text": "strlcpy(info->version,  reinterpret_cast<char *>(vbios.vbios_ver_str), \n                AMDSMI_MAX_STRING_LENGTH)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Important",
             "DevSkimConfidence": "High",
             "tags": [
               "API.DangerousAPI.BannedFunction"
@@ -1535,6 +1074,94 @@
                       },
                       "insertedContent": {
                         "text": "strlcpy(info->part_number,  reinterpret_cast<char *>(vbios.vbios_pn), \n                AMDSMI_MAX_STRING_LENGTH)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "13437bfe-bd00-3bcd-b8e7-a062cdad5011",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "Banned C function detected (strncpy)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/amd_smi/amd_smi.cc"
+                },
+                "region": {
+                  "startLine": 3808,
+                  "startColumn": 8,
+                  "endLine": 3809,
+                  "endColumn": 41,
+                  "charOffset": 164329,
+                  "charLength": 111,
+                  "snippet": {
+                    "text": "strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)",
+                    "rendered": {
+                      "text": "strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)",
+                      "markdown": "`strncpy(info->version, reinterpret_cast<char *>(vbios.vbios_ver_str),\n                AMDSMI_MAX_STRING_LENGTH)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/amd_smi.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 164329,
+                        "charLength": 111
+                      },
+                      "insertedContent": {
+                        "text": "strcpy_s(info->version, \n                AMDSMI_MAX_STRING_LENGTH,  reinterpret_cast<char *>(vbios.vbios_ver_str))"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/amd_smi.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 164329,
+                        "charLength": 111
+                      },
+                      "insertedContent": {
+                        "text": "strlcpy(info->version,  reinterpret_cast<char *>(vbios.vbios_ver_str), \n                AMDSMI_MAX_STRING_LENGTH)"
                       }
                     }
                   ]
@@ -1903,30 +1530,30 @@
           }
         },
         {
-          "ruleId": "133d62f5-dedc-3991-aabb-fabb956b7c17",
+          "ruleId": "2848d831-a937-3fec-bcab-5526797940b7",
           "kind": "fail",
-          "level": "warning",
+          "level": "note",
           "message": {
-            "text": "\"Prohibited C Function Identified\""
+            "text": "Problematic C function detected (memcpy)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_device.cc"
+                  "uri": "rocm_smi/src/rocm_smi_gpu_metrics.cc"
                 },
                 "region": {
-                  "startLine": 1151,
-                  "startColumn": 8,
-                  "endLine": 1151,
-                  "endColumn": 13,
-                  "charOffset": 48407,
-                  "charLength": 5,
+                  "startLine": 4482,
+                  "startColumn": 9,
+                  "endLine": 4482,
+                  "endColumn": 79,
+                  "charOffset": 216326,
+                  "charLength": 70,
                   "snippet": {
-                    "text": "fopen",
+                    "text": "memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)",
                     "rendered": {
-                      "text": "fopen",
-                      "markdown": "`fopen`"
+                      "text": "memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)",
+                      "markdown": "`memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)`"
                     }
                   },
                   "sourceLanguage": "cpp"
@@ -1934,11 +1561,36 @@
               }
             }
           ],
+          "fixes": [
+            {
+              "description": {
+                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_gpu_metrics.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 216326,
+                        "charLength": 70
+                      },
+                      "insertedContent": {
+                        "text": "memcpy_s(&header_value, <size of &header_value>,  &tmp_header_info,  sizeof(metrics_table_header_t)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "properties": {
-            "DevSkimSeverity": "Moderate",
+            "DevSkimSeverity": "BestPractice",
             "DevSkimConfidence": "High",
             "tags": [
-              "API.DangerousAPI.BannedFunction"
+              "API.DangerousAPI.ProblematicFunction"
             ]
           }
         },
@@ -2031,71 +1683,6 @@
           }
         },
         {
-          "ruleId": "a7cece13-1c56-3fdf-a0c9-f78ec0f12833",
-          "kind": "fail",
-          "level": "note",
-          "message": {
-            "text": "Problematic C function detected (memcpy)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_device.cc"
-                },
-                "region": {
-                  "startLine": 1135,
-                  "startColumn": 11,
-                  "endLine": 1135,
-                  "endColumn": 59,
-                  "charOffset": 48029,
-                  "charLength": 48,
-                  "snippet": {
-                    "text": "memcpy(p_binary_data, cache.data.data(), b_size)",
-                    "rendered": {
-                      "text": "memcpy(p_binary_data, cache.data.data(), b_size)",
-                      "markdown": "`memcpy(p_binary_data, cache.data.data(), b_size)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "rocm_smi/src/rocm_smi_device.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 48029,
-                        "charLength": 48
-                      },
-                      "insertedContent": {
-                        "text": "memcpy_s(p_binary_data, <size of p_binary_data>,  cache.data.data(),  b_size)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "BestPractice",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
           "ruleId": "e6c1ef5d-5a8d-36c8-ae99-94952fcaca2a",
           "kind": "fail",
           "level": "error",
@@ -2177,6 +1764,46 @@
           ],
           "properties": {
             "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "133d62f5-dedc-3991-aabb-fabb956b7c17",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Prohibited C Function Identified\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_device.cc"
+                },
+                "region": {
+                  "startLine": 1151,
+                  "startColumn": 8,
+                  "endLine": 1151,
+                  "endColumn": 13,
+                  "charOffset": 48407,
+                  "charLength": 5,
+                  "snippet": {
+                    "text": "fopen",
+                    "rendered": {
+                      "text": "fopen",
+                      "markdown": "`fopen`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
             "DevSkimConfidence": "High",
             "tags": [
               "API.DangerousAPI.BannedFunction"
@@ -2272,71 +1899,6 @@
           }
         },
         {
-          "ruleId": "2848d831-a937-3fec-bcab-5526797940b7",
-          "kind": "fail",
-          "level": "note",
-          "message": {
-            "text": "Problematic C function detected (memcpy)"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_gpu_metrics.cc"
-                },
-                "region": {
-                  "startLine": 4482,
-                  "startColumn": 9,
-                  "endLine": 4482,
-                  "endColumn": 79,
-                  "charOffset": 216326,
-                  "charLength": 70,
-                  "snippet": {
-                    "text": "memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)",
-                    "rendered": {
-                      "text": "memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)",
-                      "markdown": "`memcpy(&header_value, &tmp_header_info, sizeof(metrics_table_header_t)`"
-                    }
-                  },
-                  "sourceLanguage": "cpp"
-                }
-              }
-            }
-          ],
-          "fixes": [
-            {
-              "description": {
-                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
-              },
-              "artifactChanges": [
-                {
-                  "artifactLocation": {
-                    "uri": "rocm_smi/src/rocm_smi_gpu_metrics.cc"
-                  },
-                  "replacements": [
-                    {
-                      "deletedRegion": {
-                        "charOffset": 216326,
-                        "charLength": 70
-                      },
-                      "insertedContent": {
-                        "text": "memcpy_s(&header_value, <size of &header_value>,  &tmp_header_info,  sizeof(metrics_table_header_t)"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "BestPractice",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.ProblematicFunction"
-            ]
-          }
-        },
-        {
           "ruleId": "4bcffff6-2591-3fec-84ca-559766c225d2",
           "kind": "fail",
           "level": "note",
@@ -2409,6 +1971,71 @@
                       },
                       "insertedContent": {
                         "text": "strnlen(version_key, <size of version_key>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "a7cece13-1c56-3fdf-a0c9-f78ec0f12833",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Problematic C function detected (memcpy)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_device.cc"
+                },
+                "region": {
+                  "startLine": 1135,
+                  "startColumn": 11,
+                  "endLine": 1135,
+                  "endColumn": 59,
+                  "charOffset": 48029,
+                  "charLength": 48,
+                  "snippet": {
+                    "text": "memcpy(p_binary_data, cache.data.data(), b_size)",
+                    "rendered": {
+                      "text": "memcpy(p_binary_data, cache.data.data(), b_size)",
+                      "markdown": "`memcpy(p_binary_data, cache.data.data(), b_size)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_device.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 48029,
+                        "charLength": 48
+                      },
+                      "insertedContent": {
+                        "text": "memcpy_s(p_binary_data, <size of p_binary_data>,  cache.data.data(),  b_size)"
                       }
                     }
                   ]
@@ -2817,6 +2444,495 @@
           }
         },
         {
+          "ruleId": "a41396cf-ab03-35b4-8b70-4fde0661a347",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Detected Prohibited C Function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_main.cc"
+                },
+                "region": {
+                  "startLine": 458,
+                  "startColumn": 17,
+                  "endLine": 458,
+                  "endColumn": 21,
+                  "charOffset": 14264,
+                  "charLength": 4,
+                  "snippet": {
+                    "text": "atoi",
+                    "rendered": {
+                      "text": "atoi",
+                      "markdown": "`atoi`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "91133006-a87f-39e5-a5e1-d357fb130918",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "Detected Prohibited C Function"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_main.cc"
+                },
+                "region": {
+                  "startLine": 441,
+                  "startColumn": 14,
+                  "endLine": 441,
+                  "endColumn": 18,
+                  "charOffset": 13774,
+                  "charLength": 4,
+                  "snippet": {
+                    "text": "atoi",
+                    "rendered": {
+                      "text": "atoi",
+                      "markdown": "`atoi`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "827e3500-579e-3d93-ac37-6a17d28e3ec8",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Prohibited C Function Found\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 261,
+                  "startColumn": 13,
+                  "endLine": 261,
+                  "endColumn": 18,
+                  "charOffset": 8856,
+                  "charLength": 5,
+                  "snippet": {
+                    "text": "fopen",
+                    "rendered": {
+                      "text": "fopen",
+                      "markdown": "`fopen`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "c1a4eaa8-48df-33c3-b7c2-fd9ccca7ea32",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (strlen)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 229,
+                  "startColumn": 45,
+                  "endLine": 229,
+                  "endColumn": 57,
+                  "charOffset": 7854,
+                  "charLength": 12,
+                  "snippet": {
+                    "text": "strlen((*kv)",
+                    "rendered": {
+                      "text": "strlen((*kv)",
+                      "markdown": "`strlen((*kv)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7854,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7854,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strnlen((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "f4636ae9-3aeb-37f9-a8f2-67b5480d36a9",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (strlen)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 45,
+                  "endLine": 227,
+                  "endColumn": 57,
+                  "charOffset": 7708,
+                  "charLength": 12,
+                  "snippet": {
+                    "text": "strlen((*kv)",
+                    "rendered": {
+                      "text": "strlen((*kv)",
+                      "markdown": "`strlen((*kv)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7708,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7708,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strnlen((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "eb2cd348-d530-3f57-93ab-407dc81c48a7",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (strlen)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 224,
+                  "startColumn": 45,
+                  "endLine": 224,
+                  "endColumn": 57,
+                  "charOffset": 7563,
+                  "charLength": 12,
+                  "snippet": {
+                    "text": "strlen((*kv)",
+                    "rendered": {
+                      "text": "strlen((*kv)",
+                      "markdown": "`strlen((*kv)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7563,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7563,
+                        "charLength": 12
+                      },
+                      "insertedContent": {
+                        "text": "strnlen((*kv, <size of (*kv>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "d47146c4-8532-3e70-8447-827a2f71d817",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "\"Prohibited C Function Found\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 13,
+                  "endLine": 126,
+                  "endColumn": 18,
+                  "charOffset": 4057,
+                  "charLength": 5,
+                  "snippet": {
+                    "text": "fopen",
+                    "rendered": {
+                      "text": "fopen",
+                      "markdown": "`fopen`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Moderate",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "5ae42019-828f-382e-8ef2-c543c110ffc1",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Problematic C function detected (memcpy)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                },
+                "region": {
+                  "startLine": 140,
+                  "startColumn": 4,
+                  "endLine": 140,
+                  "endColumn": 44,
+                  "charOffset": 4406,
+                  "charLength": 40,
+                  "snippet": {
+                    "text": "memcpy(&pmmetrics_version, &buf1[12], 4)",
+                    "rendered": {
+                      "text": "memcpy(&pmmetrics_version, &buf1[12], 4)",
+                      "markdown": "`memcpy(&pmmetrics_version, &buf1[12], 4)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "There are a number of conditions in which memcpy can introduce a vulnerability (mismatched buffer sizes, null pointers, etc.). More secure alternitives perform additional validation of the source and destination buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "rocm_smi/src/rocm_smi_binary_parser.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 4406,
+                        "charLength": 40
+                      },
+                      "insertedContent": {
+                        "text": "memcpy_s(&pmmetrics_version, <size of &pmmetrics_version>,  &buf1[12],  4)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
           "ruleId": "036665bd-f247-356c-9339-825429e7e8c7",
           "kind": "fail",
           "level": "note",
@@ -3211,6 +3327,270 @@
           }
         },
         {
+          "ruleId": "7a0fbe1c-3fe0-3309-b9b3-151c1cb05f8e",
+          "kind": "fail",
+          "level": "error",
+          "message": {
+            "text": "\"Detected Use of Prohibited C Function (strcpy)\""
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/amd_smi/fdinfo.cc"
+                },
+                "region": {
+                  "startLine": 208,
+                  "startColumn": 8,
+                  "endLine": 208,
+                  "endColumn": 56,
+                  "charOffset": 7580,
+                  "charLength": 48,
+                  "snippet": {
+                    "text": "strcpy(info.container_name, container_id.c_str()",
+                    "rendered": {
+                      "text": "strcpy(info.container_name, container_id.c_str()",
+                      "markdown": "`strcpy(info.container_name, container_id.c_str()`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "strcpy is frequently dangerous, as it will cause a buffer overflow if the source is larger than the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7580,
+                        "charLength": 48
+                      },
+                      "insertedContent": {
+                        "text": "strcpy_s(info.container_name, <size of info.container_name>,  container_id.c_str()"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "strcpy is frequently dangerous, as it will cause a buffer overflow if the source is larger than the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7580,
+                        "charLength": 48
+                      },
+                      "insertedContent": {
+                        "text": "strlcpy(info.container_name,  container_id.c_str(, <size of info.container_name>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "Important",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.BannedFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "fb30d248-8c61-3853-ad65-ad3708750aae",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (strlen)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/amd_smi/fdinfo.cc"
+                },
+                "region": {
+                  "startLine": 212,
+                  "startColumn": 8,
+                  "endLine": 212,
+                  "endColumn": 35,
+                  "charOffset": 7668,
+                  "charLength": 27,
+                  "snippet": {
+                    "text": "strlen(info.container_name)",
+                    "rendered": {
+                      "text": "strlen(info.container_name)",
+                      "markdown": "`strlen(info.container_name)`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7668,
+                        "charLength": 27
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(info.container_name, <size of info.container_name>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7668,
+                        "charLength": 27
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(info.container_name, <size of info.container_name>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
+          "ruleId": "698121a6-d90d-3bac-a372-926809dbf2c7",
+          "kind": "fail",
+          "level": "note",
+          "message": {
+            "text": "Detected Vulnerability in C Function (strlen)"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/amd_smi/fdinfo.cc"
+                },
+                "region": {
+                  "startLine": 207,
+                  "startColumn": 35,
+                  "endLine": 207,
+                  "endColumn": 65,
+                  "charOffset": 7531,
+                  "charLength": 30,
+                  "snippet": {
+                    "text": "strlen(container_type_name[i])",
+                    "rendered": {
+                      "text": "strlen(container_type_name[i])",
+                      "markdown": "`strlen(container_type_name[i])`"
+                    }
+                  },
+                  "sourceLanguage": "cpp"
+                }
+              }
+            }
+          ],
+          "fixes": [
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7531,
+                        "charLength": 30
+                      },
+                      "insertedContent": {
+                        "text": "strlen_s(container_type_name[i], <size of container_type_name[i]>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "If a string is missing a null terminator, strlen will read past the end of the buffer"
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7531,
+                        "charLength": 30
+                      },
+                      "insertedContent": {
+                        "text": "strnlen(container_type_name[i], <size of container_type_name[i]>)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "properties": {
+            "DevSkimSeverity": "BestPractice",
+            "DevSkimConfidence": "High",
+            "tags": [
+              "API.DangerousAPI.ProblematicFunction"
+            ]
+          }
+        },
+        {
           "ruleId": "6dd7f938-a4ed-3f9d-8c72-ba0e18fc7a00",
           "kind": "fail",
           "level": "note",
@@ -3276,30 +3656,30 @@
           }
         },
         {
-          "ruleId": "a41396cf-ab03-35b4-8b70-4fde0661a347",
+          "ruleId": "06b1e788-5be4-3467-aaae-0a2c320ca462",
           "kind": "fail",
-          "level": "warning",
+          "level": "error",
           "message": {
-            "text": "Detected Prohibited C Function"
+            "text": "Banned C function detected (strncpy)"
           },
           "locations": [
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_main.cc"
+                  "uri": "src/amd_smi/fdinfo.cc"
                 },
                 "region": {
-                  "startLine": 458,
-                  "startColumn": 17,
-                  "endLine": 458,
-                  "endColumn": 21,
-                  "charOffset": 14264,
-                  "charLength": 4,
+                  "startLine": 198,
+                  "startColumn": 2,
+                  "endLine": 199,
+                  "endColumn": 34,
+                  "charOffset": 7050,
+                  "charLength": 67,
                   "snippet": {
-                    "text": "atoi",
+                    "text": "strncpy(info.name, name.c_str(),\n          std::min((unsigned long)",
                     "rendered": {
-                      "text": "atoi",
-                      "markdown": "`atoi`"
+                      "text": "strncpy(info.name, name.c_str(),\n          std::min((unsigned long)",
+                      "markdown": "`strncpy(info.name, name.c_str(),\n          std::min((unsigned long)`"
                     }
                   },
                   "sourceLanguage": "cpp"
@@ -3307,8 +3687,56 @@
               }
             }
           ],
+          "fixes": [
+            {
+              "description": {
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7050,
+                        "charLength": 67
+                      },
+                      "insertedContent": {
+                        "text": "strcpy_s(info.name, \n          std::min((unsigned long,  name.c_str())"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "description": {
+                "text": "strncpy is dangerous, as if the source contains 'n' or more characters, it will not null terminate the destination."
+              },
+              "artifactChanges": [
+                {
+                  "artifactLocation": {
+                    "uri": "src/amd_smi/fdinfo.cc"
+                  },
+                  "replacements": [
+                    {
+                      "deletedRegion": {
+                        "charOffset": 7050,
+                        "charLength": 67
+                      },
+                      "insertedContent": {
+                        "text": "strlcpy(info.name,  name.c_str(), \n          std::min((unsigned long)"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "properties": {
-            "DevSkimSeverity": "Moderate",
+            "DevSkimSeverity": "Important",
             "DevSkimConfidence": "High",
             "tags": [
               "API.DangerousAPI.BannedFunction"
@@ -3316,7 +3744,7 @@
           }
         },
         {
-          "ruleId": "91133006-a87f-39e5-a5e1-d357fb130918",
+          "ruleId": "42e975d8-9304-3dd4-b26c-2abd9fceca79",
           "kind": "fail",
           "level": "warning",
           "message": {
@@ -3326,23 +3754,23 @@
             {
               "physicalLocation": {
                 "artifactLocation": {
-                  "uri": "rocm_smi/src/rocm_smi_main.cc"
+                  "uri": "goamdsmi_shim/smiwrapper/amdsmi_go_shim.c"
                 },
                 "region": {
-                  "startLine": 441,
-                  "startColumn": 14,
-                  "endLine": 441,
-                  "endColumn": 18,
-                  "charOffset": 13774,
-                  "charLength": 4,
+                  "startLine": 72,
+                  "startColumn": 57,
+                  "endLine": 72,
+                  "endColumn": 63,
+                  "charOffset": 3603,
+                  "charLength": 6,
                   "snippet": {
-                    "text": "atoi",
+                    "text": "printf",
                     "rendered": {
-                      "text": "atoi",
-                      "markdown": "`atoi`"
+                      "text": "printf",
+                      "markdown": "`printf`"
                     }
                   },
-                  "sourceLanguage": "cpp"
+                  "sourceLanguage": "c"
                 }
               }
             }
@@ -3374,46 +3802,6 @@
                   "endLine": 75,
                   "endColumn": 59,
                   "charOffset": 3813,
-                  "charLength": 6,
-                  "snippet": {
-                    "text": "printf",
-                    "rendered": {
-                      "text": "printf",
-                      "markdown": "`printf`"
-                    }
-                  },
-                  "sourceLanguage": "c"
-                }
-              }
-            }
-          ],
-          "properties": {
-            "DevSkimSeverity": "Moderate",
-            "DevSkimConfidence": "High",
-            "tags": [
-              "API.DangerousAPI.BannedFunction"
-            ]
-          }
-        },
-        {
-          "ruleId": "42e975d8-9304-3dd4-b26c-2abd9fceca79",
-          "kind": "fail",
-          "level": "warning",
-          "message": {
-            "text": "Detected Prohibited C Function"
-          },
-          "locations": [
-            {
-              "physicalLocation": {
-                "artifactLocation": {
-                  "uri": "goamdsmi_shim/smiwrapper/amdsmi_go_shim.c"
-                },
-                "region": {
-                  "startLine": 72,
-                  "startColumn": 57,
-                  "endLine": 72,
-                  "endColumn": 63,
-                  "charOffset": 3603,
                   "charLength": 6,
                   "snippet": {
                     "text": "printf",
