@@ -1,0 +1,127 @@
+Oct 19, 2025 7:10:50 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: invalid regular expression: `strlen((*kv)`
+flatgraph.misc.Regex$InvalidRegexException: invalid regular expression: `strlen((*kv)`
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:18)
+	at io.shiftleft.codepropertygraph.generated.traversals.TraversalPropertyName$.name$extension(TraversalPropertyName.scala:20)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:35)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:196)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:186)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:77)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:35)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.util.regex.PatternSyntaxException: Dangling meta character '*' near index 12
+(?s)strlen((*kv)
+            ^
+	at java.base/java.util.regex.Pattern.error(Pattern.java:2095)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2270)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1836)
+	at java.base/java.util.regex.Pattern.<init>(Pattern.java:1467)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1092)
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:15)
+	... 11 more
+
+Oct 19, 2025 7:10:50 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: invalid regular expression: `strlen((*kv)`
+flatgraph.misc.Regex$InvalidRegexException: invalid regular expression: `strlen((*kv)`
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:18)
+	at io.shiftleft.codepropertygraph.generated.traversals.TraversalPropertyName$.name$extension(TraversalPropertyName.scala:20)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:35)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:196)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:186)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:77)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:35)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.util.regex.PatternSyntaxException: Dangling meta character '*' near index 12
+(?s)strlen((*kv)
+            ^
+	at java.base/java.util.regex.Pattern.error(Pattern.java:2095)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2270)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1836)
+	at java.base/java.util.regex.Pattern.<init>(Pattern.java:1467)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1092)
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:15)
+	... 11 more
+
+Oct 19, 2025 7:10:50 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: invalid regular expression: `strlen((*kv)`
+flatgraph.misc.Regex$InvalidRegexException: invalid regular expression: `strlen((*kv)`
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:18)
+	at io.shiftleft.codepropertygraph.generated.traversals.TraversalPropertyName$.name$extension(TraversalPropertyName.scala:20)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:35)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:196)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:186)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:77)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:35)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.util.regex.PatternSyntaxException: Dangling meta character '*' near index 12
+(?s)strlen((*kv)
+            ^
+	at java.base/java.util.regex.Pattern.error(Pattern.java:2095)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2270)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3119)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1836)
+	at java.base/java.util.regex.Pattern.<init>(Pattern.java:1467)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1092)
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:15)
+	... 11 more
+
+Oct 19, 2025 7:10:53 PM ai.glog.execute.workers.TriageAndRemediationCallableWorker call
+SEVERE: invalid regular expression: `strcpy(info.container_name, container_id.c_str()`
+flatgraph.misc.Regex$InvalidRegexException: invalid regular expression: `strcpy(info.container_name, container_id.c_str()`
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:18)
+	at io.shiftleft.codepropertygraph.generated.traversals.TraversalPropertyName$.name$extension(TraversalPropertyName.scala:20)
+	at ai.glog.cpg.analysis.SinkAnalyzer$.getSink(SinkAnalyzer.scala:35)
+	at ai.glog.cpg.analysis.SinkAnalyzer.getSink(SinkAnalyzer.scala)
+	at ai.glog.reporting.Sarif.getSinkCpg(Sarif.java:196)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.setGeneralRemediation(TriageAndRemediationCallableWorker.java:186)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:77)
+	at ai.glog.execute.workers.TriageAndRemediationCallableWorker.call(TriageAndRemediationCallableWorker.java:35)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+Caused by: java.util.regex.PatternSyntaxException: Unclosed group near index 52
+(?s)strcpy(info.container_name, container_id.c_str()
+	at java.base/java.util.regex.Pattern.error(Pattern.java:2095)
+	at java.base/java.util.regex.Pattern.accept(Pattern.java:1945)
+	at java.base/java.util.regex.Pattern.group0(Pattern.java:3122)
+	at java.base/java.util.regex.Pattern.sequence(Pattern.java:2191)
+	at java.base/java.util.regex.Pattern.expr(Pattern.java:2136)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1836)
+	at java.base/java.util.regex.Pattern.<init>(Pattern.java:1467)
+	at java.base/java.util.regex.Pattern.compile(Pattern.java:1092)
+	at flatgraph.misc.Regex$.multilineMatcher(Regex.scala:15)
+	... 11 more
+
